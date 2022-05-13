@@ -9,6 +9,14 @@
     <link href="libs/font-awesome/css/v4-shims.css" rel="stylesheet" />
     <link href="libs/panelset/panelset.css" rel="stylesheet" />
     <script src="libs/panelset/panelset.js"></script>
+    <script src="libs/htmlwidgets/htmlwidgets.js"></script>
+    <script src="libs/plotly-binding/plotly.js"></script>
+    <script src="libs/typedarray/typedarray.min.js"></script>
+    <script src="libs/jquery/jquery.min.js"></script>
+    <link href="libs/crosstalk/css/crosstalk.min.css" rel="stylesheet" />
+    <script src="libs/crosstalk/js/crosstalk.min.js"></script>
+    <link href="libs/plotly-htmlwidgets-css/plotly-htmlwidgets.css" rel="stylesheet" />
+    <script src="libs/plotly-main/plotly-latest.min.js"></script>
     <link rel="stylesheet" href="slides.css" type="text/css" />
   </head>
   <body>
@@ -71,6 +79,297 @@ Where I want to go?
 
 About people...
 ]]]
+
+
+---
+
+
+```r
+library(lares)
+cols &lt;- c("Role", "Place", "Type", "Start", "End")
+today &lt;- as.character(Sys.Date())
+cv &lt;- data.frame(rbind(
+  c("B.Sc. Civil Engineering", "UFMG", "Education", "1997-02-01", "2002-01-08"),
+  c("PgDip.in Railway Engineering", "Vale", "Education", "2003-09-15", "2004-04-20"),
+  c("M.Sc. Transportation Engineering", "IME", "Education", "2002-02-01", "2004-08-02"),
+  c("D.Sc. Geography", "PUCMinas", "Education", "2011-02-01", "2015-08-20"),
+  c("Assistant lecturer", "", "Work Experience", "2003-01-01", "2006-02-09"),
+  c("Teaching and research fellow", "UFMG", "Work Experience", "2017-08-01", "2021-07-01"),
+  c("Postdoctoral researcher", "Université Gustave Eiffel", "Work Experience", "2020-10-01", "2021-06-30"),
+  c("Transportion and Urban Planner", "IAC-UFT", "Work Experience", "2020-07-01", "2021-01-31"),
+  c("Railway Engineer", "Vale", "Work Experience", "2003-09-15", "2005-05-01"),
+  c("Consultant in Transporation Engineering", "Systra/Tectran", "Work Experience", "2003-02-01", "2003-09-15"),
+  c("Professor and researcher", "CEFET-MG", "Work Experience", "2006-02-10", today),
+  c("Patrick", "My love", "Heart", "2001-05-31", today),
+  c("Sofia", "More love", "Heart", "2009-09-01", today),
+  c("João", "More and more love", "Heart", "2012-12-05", today)
+))
+colnames(cv) &lt;- cols
+heart &lt;- emo::ji("heart")
+plot_timeline(event = cv$Role, 
+              start = cv$Start, 
+              end = cv$End, 
+              label = cv$Place, 
+              # Simple trick to re-arrange the grids
+              group = factor(cv$Type, levels = c("Education", "Work Experience", "Heart")),
+              interactive = F,
+              title = "Reducing distances...",
+              subdir = "Renata Oliveira")
+```
+
+```
+## Warning in .font_global(font, quiet = FALSE): Font 'Arial Narrow'
+## is not installed, has other name, or can't be found
+```
+
+&lt;img src="index_files/figure-html/unnamed-chunk-2-1.png" width="60%" style="display: block; margin: auto;" /&gt;
+
+
+---
+
+```r
+library(plotly)
+
+df &lt;- read.csv("https://cdn.rawgit.com/plotly/datasets/master/GanttChart-updated.csv", 
+               stringsAsFactors = F)
+
+df$Start  &lt;- as.Date(df$Start, format = "%m/%d/%Y")
+client    &lt;- "Sample Client"
+cols      &lt;- RColorBrewer::brewer.pal(length(unique(df$Resource)), name = "Set3")
+df$color  &lt;- factor(df$Resource, labels = cols)
+
+p &lt;- plot_ly()
+for(i in 1:(nrow(df) - 1)){
+  p &lt;- add_trace(p,
+                 x = c(df$Start[i], df$Start[i] + df$Duration[i]), 
+                 y = c(i, i), 
+                 mode = "lines",
+                 line = list(color = df$color[i], width = 20),
+                 showlegend = F,
+                 hoverinfo = "text",
+                 text = paste("Task: ", df$Task[i], "&lt;br&gt;",
+                              "Duration: ", df$Duration[i], "days&lt;br&gt;",
+                              "Resource: ", df$Resource[i]),
+                 evaluate = T
+  )
+}
+
+p
+```
+
+```
+## Warning: 'scatter' objects don't have these attributes: 'evaluate'
+## Valid attributes include:
+## 'cliponaxis', 'connectgaps', 'customdata', 'customdatasrc', 'dx', 'dy', 'error_x', 'error_y', 'fill', 'fillcolor', 'groupnorm', 'hoverinfo', 'hoverinfosrc', 'hoverlabel', 'hoveron', 'hovertemplate', 'hovertemplatesrc', 'hovertext', 'hovertextsrc', 'ids', 'idssrc', 'legendgroup', 'legendgrouptitle', 'legendrank', 'line', 'marker', 'meta', 'metasrc', 'mode', 'name', 'opacity', 'orientation', 'selected', 'selectedpoints', 'showlegend', 'stackgaps', 'stackgroup', 'stream', 'text', 'textfont', 'textposition', 'textpositionsrc', 'textsrc', 'texttemplate', 'texttemplatesrc', 'transforms', 'type', 'uid', 'uirevision', 'unselected', 'visible', 'x', 'x0', 'xaxis', 'xcalendar', 'xhoverformat', 'xperiod', 'xperiod0', 'xperiodalignment', 'xsrc', 'y', 'y0', 'yaxis', 'ycalendar', 'yhoverformat', 'yperiod', 'yperiod0', 'yperiodalignment', 'ysrc', 'key', 'set', 'frame', 'transforms', '_isNestedKey', '_isSimpleKey', '_isGraticule', '_bbox'
+
+## Warning: 'scatter' objects don't have these attributes: 'evaluate'
+## Valid attributes include:
+## 'cliponaxis', 'connectgaps', 'customdata', 'customdatasrc', 'dx', 'dy', 'error_x', 'error_y', 'fill', 'fillcolor', 'groupnorm', 'hoverinfo', 'hoverinfosrc', 'hoverlabel', 'hoveron', 'hovertemplate', 'hovertemplatesrc', 'hovertext', 'hovertextsrc', 'ids', 'idssrc', 'legendgroup', 'legendgrouptitle', 'legendrank', 'line', 'marker', 'meta', 'metasrc', 'mode', 'name', 'opacity', 'orientation', 'selected', 'selectedpoints', 'showlegend', 'stackgaps', 'stackgroup', 'stream', 'text', 'textfont', 'textposition', 'textpositionsrc', 'textsrc', 'texttemplate', 'texttemplatesrc', 'transforms', 'type', 'uid', 'uirevision', 'unselected', 'visible', 'x', 'x0', 'xaxis', 'xcalendar', 'xhoverformat', 'xperiod', 'xperiod0', 'xperiodalignment', 'xsrc', 'y', 'y0', 'yaxis', 'ycalendar', 'yhoverformat', 'yperiod', 'yperiod0', 'yperiodalignment', 'ysrc', 'key', 'set', 'frame', 'transforms', '_isNestedKey', '_isSimpleKey', '_isGraticule', '_bbox'
+
+## Warning: 'scatter' objects don't have these attributes: 'evaluate'
+## Valid attributes include:
+## 'cliponaxis', 'connectgaps', 'customdata', 'customdatasrc', 'dx', 'dy', 'error_x', 'error_y', 'fill', 'fillcolor', 'groupnorm', 'hoverinfo', 'hoverinfosrc', 'hoverlabel', 'hoveron', 'hovertemplate', 'hovertemplatesrc', 'hovertext', 'hovertextsrc', 'ids', 'idssrc', 'legendgroup', 'legendgrouptitle', 'legendrank', 'line', 'marker', 'meta', 'metasrc', 'mode', 'name', 'opacity', 'orientation', 'selected', 'selectedpoints', 'showlegend', 'stackgaps', 'stackgroup', 'stream', 'text', 'textfont', 'textposition', 'textpositionsrc', 'textsrc', 'texttemplate', 'texttemplatesrc', 'transforms', 'type', 'uid', 'uirevision', 'unselected', 'visible', 'x', 'x0', 'xaxis', 'xcalendar', 'xhoverformat', 'xperiod', 'xperiod0', 'xperiodalignment', 'xsrc', 'y', 'y0', 'yaxis', 'ycalendar', 'yhoverformat', 'yperiod', 'yperiod0', 'yperiodalignment', 'ysrc', 'key', 'set', 'frame', 'transforms', '_isNestedKey', '_isSimpleKey', '_isGraticule', '_bbox'
+
+## Warning: 'scatter' objects don't have these attributes: 'evaluate'
+## Valid attributes include:
+## 'cliponaxis', 'connectgaps', 'customdata', 'customdatasrc', 'dx', 'dy', 'error_x', 'error_y', 'fill', 'fillcolor', 'groupnorm', 'hoverinfo', 'hoverinfosrc', 'hoverlabel', 'hoveron', 'hovertemplate', 'hovertemplatesrc', 'hovertext', 'hovertextsrc', 'ids', 'idssrc', 'legendgroup', 'legendgrouptitle', 'legendrank', 'line', 'marker', 'meta', 'metasrc', 'mode', 'name', 'opacity', 'orientation', 'selected', 'selectedpoints', 'showlegend', 'stackgaps', 'stackgroup', 'stream', 'text', 'textfont', 'textposition', 'textpositionsrc', 'textsrc', 'texttemplate', 'texttemplatesrc', 'transforms', 'type', 'uid', 'uirevision', 'unselected', 'visible', 'x', 'x0', 'xaxis', 'xcalendar', 'xhoverformat', 'xperiod', 'xperiod0', 'xperiodalignment', 'xsrc', 'y', 'y0', 'yaxis', 'ycalendar', 'yhoverformat', 'yperiod', 'yperiod0', 'yperiodalignment', 'ysrc', 'key', 'set', 'frame', 'transforms', '_isNestedKey', '_isSimpleKey', '_isGraticule', '_bbox'
+
+## Warning: 'scatter' objects don't have these attributes: 'evaluate'
+## Valid attributes include:
+## 'cliponaxis', 'connectgaps', 'customdata', 'customdatasrc', 'dx', 'dy', 'error_x', 'error_y', 'fill', 'fillcolor', 'groupnorm', 'hoverinfo', 'hoverinfosrc', 'hoverlabel', 'hoveron', 'hovertemplate', 'hovertemplatesrc', 'hovertext', 'hovertextsrc', 'ids', 'idssrc', 'legendgroup', 'legendgrouptitle', 'legendrank', 'line', 'marker', 'meta', 'metasrc', 'mode', 'name', 'opacity', 'orientation', 'selected', 'selectedpoints', 'showlegend', 'stackgaps', 'stackgroup', 'stream', 'text', 'textfont', 'textposition', 'textpositionsrc', 'textsrc', 'texttemplate', 'texttemplatesrc', 'transforms', 'type', 'uid', 'uirevision', 'unselected', 'visible', 'x', 'x0', 'xaxis', 'xcalendar', 'xhoverformat', 'xperiod', 'xperiod0', 'xperiodalignment', 'xsrc', 'y', 'y0', 'yaxis', 'ycalendar', 'yhoverformat', 'yperiod', 'yperiod0', 'yperiodalignment', 'ysrc', 'key', 'set', 'frame', 'transforms', '_isNestedKey', '_isSimpleKey', '_isGraticule', '_bbox'
+
+## Warning: 'scatter' objects don't have these attributes: 'evaluate'
+## Valid attributes include:
+## 'cliponaxis', 'connectgaps', 'customdata', 'customdatasrc', 'dx', 'dy', 'error_x', 'error_y', 'fill', 'fillcolor', 'groupnorm', 'hoverinfo', 'hoverinfosrc', 'hoverlabel', 'hoveron', 'hovertemplate', 'hovertemplatesrc', 'hovertext', 'hovertextsrc', 'ids', 'idssrc', 'legendgroup', 'legendgrouptitle', 'legendrank', 'line', 'marker', 'meta', 'metasrc', 'mode', 'name', 'opacity', 'orientation', 'selected', 'selectedpoints', 'showlegend', 'stackgaps', 'stackgroup', 'stream', 'text', 'textfont', 'textposition', 'textpositionsrc', 'textsrc', 'texttemplate', 'texttemplatesrc', 'transforms', 'type', 'uid', 'uirevision', 'unselected', 'visible', 'x', 'x0', 'xaxis', 'xcalendar', 'xhoverformat', 'xperiod', 'xperiod0', 'xperiodalignment', 'xsrc', 'y', 'y0', 'yaxis', 'ycalendar', 'yhoverformat', 'yperiod', 'yperiod0', 'yperiodalignment', 'ysrc', 'key', 'set', 'frame', 'transforms', '_isNestedKey', '_isSimpleKey', '_isGraticule', '_bbox'
+
+## Warning: 'scatter' objects don't have these attributes: 'evaluate'
+## Valid attributes include:
+## 'cliponaxis', 'connectgaps', 'customdata', 'customdatasrc', 'dx', 'dy', 'error_x', 'error_y', 'fill', 'fillcolor', 'groupnorm', 'hoverinfo', 'hoverinfosrc', 'hoverlabel', 'hoveron', 'hovertemplate', 'hovertemplatesrc', 'hovertext', 'hovertextsrc', 'ids', 'idssrc', 'legendgroup', 'legendgrouptitle', 'legendrank', 'line', 'marker', 'meta', 'metasrc', 'mode', 'name', 'opacity', 'orientation', 'selected', 'selectedpoints', 'showlegend', 'stackgaps', 'stackgroup', 'stream', 'text', 'textfont', 'textposition', 'textpositionsrc', 'textsrc', 'texttemplate', 'texttemplatesrc', 'transforms', 'type', 'uid', 'uirevision', 'unselected', 'visible', 'x', 'x0', 'xaxis', 'xcalendar', 'xhoverformat', 'xperiod', 'xperiod0', 'xperiodalignment', 'xsrc', 'y', 'y0', 'yaxis', 'ycalendar', 'yhoverformat', 'yperiod', 'yperiod0', 'yperiodalignment', 'ysrc', 'key', 'set', 'frame', 'transforms', '_isNestedKey', '_isSimpleKey', '_isGraticule', '_bbox'
+```
+
+<div id="htmlwidget-1b4ff99564eb6e8884a5" style="width:60%;height:1483.2px;" class="plotly html-widget"></div>
+<script type="application/json" data-for="htmlwidget-1b4ff99564eb6e8884a5">{"x":{"visdat":{"f5a83a34efd":["function () ","plotlyVisDat"]},"cur_data":"f5a83a34efd","attrs":{"f5a83a34efd":{"alpha_stroke":1,"sizes":[10,100],"spans":[1,20],"x":["2016-01-01","2016-02-20"],"y":[1,1],"mode":"lines","line":{"color":"#8DD3C7","width":20},"showlegend":false,"hoverinfo":"text","text":"Task:  Task 1 <br> Duration:  50 days<br> Resource:  A","evaluate":true,"inherit":true},"f5a83a34efd.1":{"alpha_stroke":1,"sizes":[10,100],"spans":[1,20],"x":["2016-02-20","2016-03-16"],"y":[2,2],"mode":"lines","line":{"color":"#FFFFB3","width":20},"showlegend":false,"hoverinfo":"text","text":"Task:  Task 2 <br> Duration:  25 days<br> Resource:  B","evaluate":true,"inherit":true},"f5a83a34efd.2":{"alpha_stroke":1,"sizes":[10,100],"spans":[1,20],"x":["2016-01-01","2016-04-10"],"y":[3,3],"mode":"lines","line":{"color":"#BEBADA","width":20},"showlegend":false,"hoverinfo":"text","text":"Task:  Task 3 <br> Duration:  100 days<br> Resource:  C","evaluate":true,"inherit":true},"f5a83a34efd.3":{"alpha_stroke":1,"sizes":[10,100],"spans":[1,20],"x":["2016-04-10","2016-06-09"],"y":[4,4],"mode":"lines","line":{"color":"#BEBADA","width":20},"showlegend":false,"hoverinfo":"text","text":"Task:  Task 4 <br> Duration:  60 days<br> Resource:  C","evaluate":true,"inherit":true},"f5a83a34efd.4":{"alpha_stroke":1,"sizes":[10,100],"spans":[1,20],"x":["2016-06-09","2016-07-09"],"y":[5,5],"mode":"lines","line":{"color":"#BEBADA","width":20},"showlegend":false,"hoverinfo":"text","text":"Task:  Task 5 <br> Duration:  30 days<br> Resource:  C","evaluate":true,"inherit":true},"f5a83a34efd.5":{"alpha_stroke":1,"sizes":[10,100],"spans":[1,20],"x":["2016-04-10","2016-09-07"],"y":[6,6],"mode":"lines","line":{"color":"#8DD3C7","width":20},"showlegend":false,"hoverinfo":"text","text":"Task:  Task 6 <br> Duration:  150 days<br> Resource:  A","evaluate":true,"inherit":true},"f5a83a34efd.6":{"alpha_stroke":1,"sizes":[10,100],"spans":[1,20],"x":["2016-09-07","2016-11-26"],"y":[7,7],"mode":"lines","line":{"color":"#FFFFB3","width":20},"showlegend":false,"hoverinfo":"text","text":"Task:  Task 7 <br> Duration:  80 days<br> Resource:  B","evaluate":true,"inherit":true}},"layout":{"margin":{"b":40,"l":60,"t":25,"r":10},"xaxis":{"domain":[0,1],"automargin":true,"title":[]},"yaxis":{"domain":[0,1],"automargin":true,"title":[]},"hovermode":"closest","showlegend":false},"source":"A","config":{"modeBarButtonsToAdd":["hoverclosest","hovercompare"],"showSendToCloud":false},"data":[{"x":["2016-01-01","2016-02-20"],"y":[1,1],"mode":"lines","line":{"color":"#8DD3C7","width":20},"showlegend":false,"hoverinfo":["text","text"],"text":["Task:  Task 1 <br> Duration:  50 days<br> Resource:  A","Task:  Task 1 <br> Duration:  50 days<br> Resource:  A"],"evaluate":true,"type":"scatter","marker":{"color":"rgba(31,119,180,1)","line":{"color":"rgba(31,119,180,1)"}},"error_y":{"color":"rgba(31,119,180,1)"},"error_x":{"color":"rgba(31,119,180,1)"},"xaxis":"x","yaxis":"y","frame":null},{"x":["2016-02-20","2016-03-16"],"y":[2,2],"mode":"lines","line":{"color":"#FFFFB3","width":20},"showlegend":false,"hoverinfo":["text","text"],"text":["Task:  Task 2 <br> Duration:  25 days<br> Resource:  B","Task:  Task 2 <br> Duration:  25 days<br> Resource:  B"],"evaluate":true,"type":"scatter","marker":{"color":"rgba(255,127,14,1)","line":{"color":"rgba(255,127,14,1)"}},"error_y":{"color":"rgba(255,127,14,1)"},"error_x":{"color":"rgba(255,127,14,1)"},"xaxis":"x","yaxis":"y","frame":null},{"x":["2016-01-01","2016-04-10"],"y":[3,3],"mode":"lines","line":{"color":"#BEBADA","width":20},"showlegend":false,"hoverinfo":["text","text"],"text":["Task:  Task 3 <br> Duration:  100 days<br> Resource:  C","Task:  Task 3 <br> Duration:  100 days<br> Resource:  C"],"evaluate":true,"type":"scatter","marker":{"color":"rgba(44,160,44,1)","line":{"color":"rgba(44,160,44,1)"}},"error_y":{"color":"rgba(44,160,44,1)"},"error_x":{"color":"rgba(44,160,44,1)"},"xaxis":"x","yaxis":"y","frame":null},{"x":["2016-04-10","2016-06-09"],"y":[4,4],"mode":"lines","line":{"color":"#BEBADA","width":20},"showlegend":false,"hoverinfo":["text","text"],"text":["Task:  Task 4 <br> Duration:  60 days<br> Resource:  C","Task:  Task 4 <br> Duration:  60 days<br> Resource:  C"],"evaluate":true,"type":"scatter","marker":{"color":"rgba(214,39,40,1)","line":{"color":"rgba(214,39,40,1)"}},"error_y":{"color":"rgba(214,39,40,1)"},"error_x":{"color":"rgba(214,39,40,1)"},"xaxis":"x","yaxis":"y","frame":null},{"x":["2016-06-09","2016-07-09"],"y":[5,5],"mode":"lines","line":{"color":"#BEBADA","width":20},"showlegend":false,"hoverinfo":["text","text"],"text":["Task:  Task 5 <br> Duration:  30 days<br> Resource:  C","Task:  Task 5 <br> Duration:  30 days<br> Resource:  C"],"evaluate":true,"type":"scatter","marker":{"color":"rgba(148,103,189,1)","line":{"color":"rgba(148,103,189,1)"}},"error_y":{"color":"rgba(148,103,189,1)"},"error_x":{"color":"rgba(148,103,189,1)"},"xaxis":"x","yaxis":"y","frame":null},{"x":["2016-04-10","2016-09-07"],"y":[6,6],"mode":"lines","line":{"color":"#8DD3C7","width":20},"showlegend":false,"hoverinfo":["text","text"],"text":["Task:  Task 6 <br> Duration:  150 days<br> Resource:  A","Task:  Task 6 <br> Duration:  150 days<br> Resource:  A"],"evaluate":true,"type":"scatter","marker":{"color":"rgba(140,86,75,1)","line":{"color":"rgba(140,86,75,1)"}},"error_y":{"color":"rgba(140,86,75,1)"},"error_x":{"color":"rgba(140,86,75,1)"},"xaxis":"x","yaxis":"y","frame":null},{"x":["2016-09-07","2016-11-26"],"y":[7,7],"mode":"lines","line":{"color":"#FFFFB3","width":20},"showlegend":false,"hoverinfo":["text","text"],"text":["Task:  Task 7 <br> Duration:  80 days<br> Resource:  B","Task:  Task 7 <br> Duration:  80 days<br> Resource:  B"],"evaluate":true,"type":"scatter","marker":{"color":"rgba(227,119,194,1)","line":{"color":"rgba(227,119,194,1)"}},"error_y":{"color":"rgba(227,119,194,1)"},"error_x":{"color":"rgba(227,119,194,1)"},"xaxis":"x","yaxis":"y","frame":null}],"highlight":{"on":"plotly_click","persistent":false,"dynamic":false,"selectize":false,"opacityDim":0.2,"selected":{"opacity":1},"debounce":0},"shinyEvents":["plotly_hover","plotly_click","plotly_selected","plotly_relayout","plotly_brushed","plotly_brushing","plotly_clickannotation","plotly_doubleclick","plotly_deselect","plotly_afterplot","plotly_sunburstclick"],"base_url":"https://plot.ly"},"evals":[],"jsHooks":[]}</script>
+
+
+---
+
+
+
+```r
+# All packages used below must be installed first
+library(devtools)
+# devtools::install_github("laresbernardo/lares")
+library(lares)
+library(ggplot2)
+library(hrbrthemes)
+
+plot_timeline2 &lt;- function(event, start, end = start + 1, label = NA, group = NA,
+                           title = "My career", subtitle = "Renata Oliveira",
+                           size = 7, colour = "red", save = FALSE, subdir = NA) {
+  df &lt;- data.frame(
+    Role = as.character(event), Place = as.character(label),
+    Start = lubridate::date(start), End = lubridate::date(end),
+    Type = group
+  )
+  cvlong &lt;- data.frame(pos = rep(
+    as.numeric(rownames(df)),
+    2
+  ), name = rep(as.character(df$Role), 2), type = rep(factor(df$Type,
+    ordered = FALSE
+  ), 2), where = rep(
+    as.character(df$Place),
+    2
+  ), value = c(df$Start, df$End), label_pos = rep(df$Start +
+    floor((df$End - df$Start) / 2), 2))
+  maxdate &lt;- max(df$End)
+  p &lt;- ggplot(cvlong, aes(x = value, y = reorder(name, -pos), label = where, group = pos)) + geom_vline(
+    xintercept = maxdate,
+    alpha = 0.8, linetype = "solid"
+  ) + labs(
+    title = title,
+    subtitle = subtitle, x = NULL, y = NULL, colour = NULL
+  ) +
+    theme_ipsum() + theme(panel.background = element_rect(
+      fill = "white",
+      colour = NA
+    ), axis.ticks = element_blank(), panel.grid.major.x = element_line(
+      size = 0.25,
+      colour = "grey80"
+    ))
+  if (!is.na(cvlong$type)[1] | length(unique(cvlong$type)) &gt;
+    1) {
+    p &lt;- p + geom_line(aes(color = type), size = size) +
+      facet_grid(type ~ ., scales = "free", space = "free") +
+      guides(colour = FALSE) +
+      scale_colour_hue()
+  }
+  else {
+    p &lt;- p + geom_line(size = size, colour = colour)
+  }
+  p &lt;- p + geom_text(aes(x = label_pos),
+    colour = "white",
+    size = 3, alpha = 0.9
+  )
+  if (save) {
+    file_name &lt;- "cv_timeline.png"
+    if (!is.na(subdir)) {
+      dir.create(file.path(getwd(), subdir), recursive = T)
+      file_name &lt;- paste(subdir, file_name, sep = "/")
+    }
+    p &lt;- p + ggsave(file_name, width = 8, height = 6)
+    message(paste("Saved plot as", file_name))
+  }
+  return(p)
+}
+order &lt;- c("Role", "Place", "Type", "Start", "End")
+today &lt;- as.character(Sys.Date())
+### Edit from here ###
+cv &lt;- data.frame(rbind(
+  c("B.Sc. Civil Engineering", "UFMG", "Education", "1997-02-01", "2002-01-08"),
+  c("PgDip.in Railway Engineering", "Vale", "Education", "2003-09-15", "2004-04-20"),
+  c("M.Sc. Transportation Engineering", "IME", "Education", "2002-02-01", "2004-08-02"),
+  c("D.Sc. Geography", "PUCMinas", "Education", "2011-02-01", "2015-08-20"),
+  c("English Teacher", "Home", "Teaching and research experience", "1996-03-01", "2001-06-30"),
+  c("Assistant lecturer", "Different institutions", "Teaching and research experience", "2003-01-01", "2006-02-09"),
+  c("Teaching and research fellow", "UFMG", "Teaching and research experience", "2017-08-01", "2021-07-01"),
+  c("Postdoctoral researcher", "Gustave Eiffel", "Teaching and research experience", "2020-10-01", "2021-06-30"),
+  c("Transportion and Urban Planner", "IAC-UFT", "Work Experience", "2020-07-01", "2021-01-31"),
+  c("Railway Engineer", "Vale", "Work Experience", "2003-09-15", "2005-05-01"),
+  c("Consultant in Transporation Engineering", "Systra/Tectran", "Work Experience", "2003-02-01", "2003-09-15"),
+  c("Professor and researcher", "CEFET-MG", "Work Experience", "2006-02-10", today),
+  c("Patrick", "My love", "Heart", "2001-05-31", today),
+  c("Sofia", "More love", "Heart", "2009-09-01", today),
+  c("João", "More and more love", "Heart", "2012-12-05", today)
+))
+### Edit until here ###
+colnames(cv) &lt;- order
+colour &lt;- c("#45776D", "#454F77", "#77454F")
+plot_timeline2(
+  event = cv$Role,
+  start = cv$Start,
+  end = cv$End,
+  label = cv$Place,
+  group = cv$Type,
+  save = FALSE,
+  subtitle = "Renata Oliveira", colour = c("#45776D", "#454F77", "#77454F"))  # replace with your name
+```
+
+```
+## Warning: `guides(&lt;scale&gt; = FALSE)` is deprecated. Please use
+## `guides(&lt;scale&gt; = "none")` instead.
+```
+
+```
+## Warning in grid.Call(C_stringMetric, as.graphicsAnnot(x$label)):
+## font family not found in Windows font database
+
+## Warning in grid.Call(C_stringMetric, as.graphicsAnnot(x$label)):
+## font family not found in Windows font database
+```
+
+```
+## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label),
+## x$x, x$y, : font family not found in Windows font database
+```
+
+```
+## Warning in grid.Call(C_stringMetric, as.graphicsAnnot(x$label)):
+## font family not found in Windows font database
+```
+
+```
+## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label),
+## x$x, x$y, : font family not found in Windows font database
+
+## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label),
+## x$x, x$y, : font family not found in Windows font database
+
+## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label),
+## x$x, x$y, : font family not found in Windows font database
+
+## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label),
+## x$x, x$y, : font family not found in Windows font database
+```
+
+```
+## Warning in grid.Call.graphics(C_text, as.graphicsAnnot(x$label),
+## x$x, x$y, : font family not found in Windows font database
+
+## Warning in grid.Call.graphics(C_text, as.graphicsAnnot(x$label),
+## x$x, x$y, : font family not found in Windows font database
+
+## Warning in grid.Call.graphics(C_text, as.graphicsAnnot(x$label),
+## x$x, x$y, : font family not found in Windows font database
+
+## Warning in grid.Call.graphics(C_text, as.graphicsAnnot(x$label),
+## x$x, x$y, : font family not found in Windows font database
+
+## Warning in grid.Call.graphics(C_text, as.graphicsAnnot(x$label),
+## x$x, x$y, : font family not found in Windows font database
+
+## Warning in grid.Call.graphics(C_text, as.graphicsAnnot(x$label),
+## x$x, x$y, : font family not found in Windows font database
+
+## Warning in grid.Call.graphics(C_text, as.graphicsAnnot(x$label),
+## x$x, x$y, : font family not found in Windows font database
+
+## Warning in grid.Call.graphics(C_text, as.graphicsAnnot(x$label),
+## x$x, x$y, : font family not found in Windows font database
+```
+
+```
+## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label),
+## x$x, x$y, : font family not found in Windows font database
+
+## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label),
+## x$x, x$y, : font family not found in Windows font database
+
+## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label),
+## x$x, x$y, : font family not found in Windows font database
+```
+
+&lt;img src="index_files/figure-html/unnamed-chunk-4-1.png" width="60%" style="display: block; margin: auto;" /&gt;
+
 
 
 ---
@@ -948,7 +1247,7 @@ background-size: cover
 ]]
     </textarea>
 <style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>
-<script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>
+<script src="libs/remark-latest.min.js"></script>
 <script src="https://platform.twitter.com/widgets.js"></script>
 <script>var slideshow = remark.create({
 "highlightStyle": "github",
