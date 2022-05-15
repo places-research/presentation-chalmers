@@ -32,7 +32,7 @@ background-size: contain
 
 .huge[
 .center[
-Expanding life and Reducing distances.... 
+Curating people and Reducing distances.... 
 ]]
 
 .purple[
@@ -159,20 +159,6 @@ knitr::include_graphics("img/understanding1.png")
 ```
 
 ---
-class: 
-background-image: url(img/change1.jpg)
-background-size: cover
-
-.purple[
-.larger[
-English Teacher: 1996-2000
-]]
-
-```{r english, echo=FALSE, out.width="90%"}
-knitr::include_graphics("img/teachinghub3a.jpg")
-``` 
-
----
 background-image: url(img/thisisengineering-raeng-lSgfUoyyDwI-unsplash.jpg)
 background-size: cover
 
@@ -227,24 +213,45 @@ Military Institute of Engineering - M.Sc. Transportation Engineering
 Supervisor: Prof. Marcus Vinícius Quintela Cury
 ]
 
-
-<br></br>
-<br></br>
-<br></br>
-<br></br>
-
 .center[
 .larger[
 2002-2004
 ]]
 
 ---
+background-image: url(img/change1].jpg)
+background-size: cover
 
+# Postgraduate diploma in Railway Engineering
+
+
+.large[
+Vale - PgDip. Transportation Engineering
+]
+
+Analysis of the Increased Reliability of the Locomotives of the Grain Route after the Implementation of FCA's New Traction Frame
+
+.center[
+.larger[
+2003-2004
+]]
 
 
 ---
 background-image: url(img/change1].jpg)
 background-size: cover
+
+# Teaching experience
+
+.purple[
+.larger[
+English Teacher: 1996-2000
+]]
+
+```{r english, echo=FALSE, out.width="90%"}
+knitr::include_graphics("img/teachinghub3a.jpg")
+``` 
+
 
 New Horizons College    
 
@@ -252,15 +259,19 @@ Community Foundation for Higher Education of Itabira
 
 Department of Transportation Engineering and Geotechnics - UFMG
 
+Cefetmg
+
 ---
 
 background-image: url(img/change1].jpg)
 background-size: cover
 
+# Professional experience in the industry
+
 .pull-left[
 .large[
 .bold[
-Tectran - Ramón Vitor César   
+Systra - Tectran
 ]]]
 
 --
@@ -275,6 +286,7 @@ Vale - Engenharia Ferroviária
 ]
 
 ---
+
 background-image: url(img/change1].jpg)
 background-size: cover
 
@@ -285,23 +297,9 @@ knitr::include_graphics("img/vale.png")
 ]
 
 .pull-right-narrow[
-.bold[
-
-Estudos operacionais
-]
-
-
-.bold[
-
-VPL
-
-PPC
-
-Especialização em Engenharia Ferroviária
-]
-
-Análise do Aumento de Confiabilidade das Locomotivas da Rota do Grão a Partir da Implantação do Novo Quadro de Tração da FCA
-
+- Estudos operacionais
+- VPL
+- PPC
 ]
 
 
@@ -311,30 +309,24 @@ background-size: cover
 
 .center[
 .larger[
-2006 - 2009
+2006 - 2019
 ]]
 
-
-.bold[
-Technical courses in Transportation and Traffic
-]
-
---
-
-.bold[
-Coordenação de laboratórios
-]
-
---
-
-.bold[
-Coordenação de cursos
-]
-
---
 **Transportation Engineering Department**
+
+Technical courses in Transportation and Traffic
+
+
+Coordenação de laboratórios
+
+
+Coordenação de cursos
+
+
 Sub-coordination and coordination of Transportation Engineering undergraduate course   
+
 Introduction to Transportation Engineering ❤️   
+
 Scientific Initiation and Junior Scientific Initiation students
 
 .pull-right[
@@ -380,6 +372,7 @@ knitr::include_graphics("img/nos2.jpg")
 ```
 ]
 
+❤️❤️
 .pull-right[
 ```{r nos3, echo=FALSE,  message=FALSE, warning=FALSE, out.width="70%"}
 knitr::include_graphics("img/nos3.jpg")
@@ -399,7 +392,7 @@ class: middle
 knitr::include_graphics("img/sofia1.png")
 ```
 ]
-
+❤️❤️
 .pull-right[
 ```{r sofia2, echo=FALSE,  message=FALSE, warning=FALSE, out.width="50%"}
 knitr::include_graphics("img/sofia2.png")
@@ -418,7 +411,7 @@ class: middle
 knitr::include_graphics("img/joao1.png")
 ```
 ]
-
+❤️❤️
 .pull-right[
 ```{r joao2, echo=FALSE, message=FALSE, warning=FALSE, out.width="50%"}
 knitr::include_graphics("img/joao2.png")
@@ -827,7 +820,7 @@ background-size: cover
 
 .bold[
 .large[
-“To TEACH, one needs Eros” Platão
+“To TEACH, one needs Eros” Plato
 
 To LEARN, one needs Eros. Renata
 
@@ -847,7 +840,7 @@ background-image: url(img/dist.jpg)
 background-size: cover
 
 .larger[
-Creating life and reducing distances....
+Curating people and reducing distances....
 ]
 ---
 
