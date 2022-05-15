@@ -60,7 +60,7 @@ layout: true
   
 <div class="my-footer">
 <span>
-<a href="https://retaoliveira.space" target="_blank">https://retaoliveira.space</a>
+<a href="https://retaoliveira.space" target="_blank">Renata Oliveira</a>
 </span>
 </div> 
 

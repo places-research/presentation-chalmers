@@ -254,7 +254,7 @@ p
 ggsave("cv_timeline.png", width = 8, height = 6)
 ```  
 
-```{r}
+```{r echo=FALSE, message=FALSE, warning=FALSE}
 # All packages used below must be installed first
 library(devtools)
 # devtools::install_github("laresbernardo/lares")
@@ -263,6 +263,7 @@ library(ggplot2)
 library(hrbrthemes)
 library(ggrepel)
 library(tidyverse)
+library(plotly)
 
 order <- c("Role", "Place", "Type", "Start", "End")
 
@@ -324,19 +325,12 @@ p <- ggplot(cvlong, aes(x = value, y = reorder(name, -pos), label = where, group
        geom_line(aes(color = type), size = size) +
              facet_grid(type ~ ., scales = "free", space = "free") +
              scale_colour_manual(values = c("#8fada7", "#7c839f", "#a19aa3", "#a46e7c", "#635867" )) 
-plotly(p)
+plotly(username = p)
 p
 
 
 
 ggsave("cv_timeline.png", width = 15, height = 6)
-
- #    p <- p + annotate(geom = "curve", x = 4, y = 35, xend = 2.65, yend = 27, curvature = .3, arrow = arrow(length = unit(2, "mm"))) +
-  #             annotate(geom = "text", x = 4.1, y = 35, label = "TEste", hjust = "left")
-     
-    #p <- p + geom_label_repel(aes(x = label_pos), family = "Arial", size = 3, min.segment.length = 0,  seed = 42,  box.padding = 0.5, max.overlaps = Inf, arrow = arrow(length = unit(0.010, "npc")), nudge_x = .15, nudge_y = .5, color = "grey50")
-  
-
 
 ```
 

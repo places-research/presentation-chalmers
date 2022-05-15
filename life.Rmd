@@ -1,0 +1,107 @@
+---
+title: "Untitled"
+author: "Renata Oliveira"
+date: '2022-05-15'
+output: html_document
+---
+
+
+```{r message=FALSE, warning=FALSE, include=FALSE}
+pacman::p_load(
+  tidyverse,      # includes ggplot2 and other
+  rio,            # import/export
+  here,           # file locator
+  stringr,        # working with characters   
+  scales,         # transform numbers
+  ggrepel,        # smartly-placed labels
+  gghighlight,    # highlight one part of plot
+  RColorBrewer,    # color scales
+  lares,
+  ggplot2,
+  hrbrthemes,
+  ggrepel,
+  plotly,
+  tidyverse,
+  extrafont
+)
+```
+
+```{r echo=FALSE, message=FALSE, warning=FALSE}
+
+order <- c("Role", "Place", "Type", "Start", "End")
+
+today <- as.character(Sys.Date())
+
+cv <- data.frame(rbind(
+  c("Basic education", "BH", "Education", "1979-06-01", "1996-12-01"),
+  c("B.Sc. Civil Engineering", "UFMG", "Education", "1997-02-01", "2002-01-08"),
+  c("PgDip.in Railway Engineering", "Vale", "Education", "2003-09-15", "2004-04-20"),
+  c("M.Sc. Transportation Engineering", "IME", "Education", "2002-02-01", "2004-08-02"),
+  c("D.Sc. Geography", "PUCMinas", "Education", "2011-02-01", "2015-08-20"),
+  c("Patrick", "My love", "Heart", "2001-05-31", "2022-05-24"),
+  c("Sofia", "More love", "Heart", "2009-09-01", "2022-05-24"),
+  c("João", "More and more love", "Heart", "2012-12-05", "2022-05-24"),
+  c("English Teacher", "Home", "Work\n Teaching and\n research", "1996-03-01", "2001-06-30"),
+  c("Assistant lecturer", "Different institutions", "Work\n Teaching and\n research", "2003-01-01", "2006-02-09"),
+  c("Teaching and research fellow", "UFMG", "Work\n Teaching and\n research", "2017-08-01", "2021-07-01"),
+  c("Teaching and research", "CEFET-MG", "Work\n Teaching and\n research", "2006-02-10", "2022-05-24"),
+  c("Postdoctoral researcher", "Gustave Eiffel", "Work\n Teaching and\n research", "2020-10-01", "2021-06-30"),
+  c("Transportion and Urban Planner", "IAC-UFT", "Work\n industry", "2020-07-01", "2021-01-31"),
+  c("Consultant in Transporation Engineering", "Systra/Tectran", "Work\n industry", "2003-02-01", "2003-09-15"),
+  c("Railway Engineer", "Vale", "Work\n industry", "2003-09-15", "2005-05-01"),
+  c("Birth", "BH", "Life", "1979-02-26", "2022-05-24"),
+  c("International experience", "Idaho-US", "Life", "1995-08-01", "1996-02-01"),
+  c("International experience", "France", "Life", "2013-06-20", "2013-12-31")
+))
+
+colnames(cv) <- order
+
+colour <- c("#8fada7", "#7c839f", "#a19aa3", "#a46e7c", "#FFB2B2" )
+
+plot_timeline2 <- function(event, start, end = start + 1, label = NA, group = NA,
+                           size = 8, colour = "black", save = FALSE, subdir = NA) {
+  
+  df <- data.frame(Role = as.character(event), 
+                   Place = as.character(label),
+                   Start = lubridate::date(start), 
+                   End = lubridate::date(end),
+                   Type = group)
+  
+  cvlong <- data.frame(pos = rep(as.numeric(rownames(df)),2), 
+                       name = rep(as.character(df$Role), 2), 
+                       type = rep(factor(df$Type, levels = c("Life", "Education", "Work\n Teaching and\n research", "Work\n industry", "Heart")), 2), 
+                       where = rep(as.character(df$Place),2), 
+                       value = c(df$Start, df$End), 
+                       label_pos = rep(df$Start + floor((df$End - df$Start) / 2), 2))
+  
+  maxdate <- max(df$End)
+  
+  p <- ggplot(cvlong, aes(x = value, y = reorder(name, -pos), label = where, group = pos)) + 
+          geom_vline(xintercept = maxdate, alpha = 0.8, linetype = "dotted") + 
+          labs(x = NULL, y = NULL, colour = NULL) +
+          theme(panel.background = element_rect(fill = "white", colour = "white"),
+                axis.ticks = element_blank(), 
+                panel.grid.major.x = element_line(size = 0.2, colour = "grey80"),
+                strip.background = element_rect(fill="#ffffff", colour = "grey90"),
+                legend.position = "none")
+  
+  p <- p + geom_line(aes(color = type), size = size) +
+           facet_grid(type ~ ., scales = "free", space = "free") +
+           scale_colour_manual(values = c("#8fada7", "#E5E5FF", "#FFFFB2", "#a46e7c", "#FFB2B2" )) 
+
+  p <- p + geom_text(aes(x = label_pos), colour = "black", size = 3, alpha = 1)
+  
+  p
+}
+
+plot_timeline2(
+  event = cv$Role,
+  start = cv$Start,
+  end = cv$End,
+  label = cv$Place,
+  group = cv$Type,
+  save = FALSE)
+
+ggsave("cv_timeline.png", width = 10, height = 6)
+
+```

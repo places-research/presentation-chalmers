@@ -6,7 +6,6 @@ author:
 date: '24/05/2022'
 output:
   xaringan::moon_reader:
-    chakra: libs/remark-latest.min.js
     lib_dir: libs
     css: ["slides.css"]
     nature:
@@ -33,11 +32,8 @@ background-size: contain
 
 .huge[
 .center[
-Reducing distances.... 
+Expanding life and Reducing distances.... 
 ]]
-
-<br></br>
-
 
 .purple[
 .bigger[
@@ -46,7 +42,6 @@ Reducing distances....
 
 
 .purple[
-Renata Oliveira   
 24/05/2022
 ]
 
@@ -54,207 +49,20 @@ Renata Oliveira
 background-image: url(img/joanna-kosinska-1_CMoFsPfso-unsplash.jpg)
 background-size: cover
 
-## Agenda
+# Agenda
 
 .large[
 .bold[
 .pull-right-wide[
-Who am I?
+Understanding the world...
 
-Why academic life?
+Learning and teaching...
 
-Teaching and research experience
+Producing and sharing knowlegde for a better world...
 
-Where I want to go?
+Why Chalmers and where to go...
 
-About people...
 ]]]
-
-
----
-
-```{r eval=FALSE, include=FALSE}
-library(lares)
-cols <- c("Role", "Place", "Type", "Start", "End")
-today <- as.character(Sys.Date())
-cv <- data.frame(rbind(
-  c("B.Sc. Civil Engineering", "UFMG", "Education", "1997-02-01", "2002-01-08"),
-  c("PgDip.in Railway Engineering", "Vale", "Education", "2003-09-15", "2004-04-20"),
-  c("M.Sc. Transportation Engineering", "IME", "Education", "2002-02-01", "2004-08-02"),
-  c("D.Sc. Geography", "PUCMinas", "Education", "2011-02-01", "2015-08-20"),
-  c("Assistant lecturer", "", "Work Experience", "2003-01-01", "2006-02-09"),
-  c("Teaching and research fellow", "UFMG", "Work Experience", "2017-08-01", "2021-07-01"),
-  c("Postdoctoral researcher", "Université Gustave Eiffel", "Work Experience", "2020-10-01", "2021-06-30"),
-  c("Transportion and Urban Planner", "IAC-UFT", "Work Experience", "2020-07-01", "2021-01-31"),
-  c("Railway Engineer", "Vale", "Work Experience", "2003-09-15", "2005-05-01"),
-  c("Consultant in Transporation Engineering", "Systra/Tectran", "Work Experience", "2003-02-01", "2003-09-15"),
-  c("Professor and researcher", "CEFET-MG", "Work Experience", "2006-02-10", today),
-  c("Patrick", "My love", "Heart", "2001-05-31", today),
-  c("Sofia", "More love", "Heart", "2009-09-01", today),
-  c("João", "More and more love", "Heart", "2012-12-05", today)
-))
-colnames(cv) <- cols
-heart <- emo::ji("heart")
-plot_timeline(event = cv$Role, 
-              start = cv$Start, 
-              end = cv$End, 
-              label = cv$Place, 
-              # Simple trick to re-arrange the grids
-              group = factor(cv$Type, levels = c("Education", "Work Experience", "Heart")),
-              interactive = F,
-              title = "Reducing distances...",
-              subdir = "Renata Oliveira")
-```
-
-
----
-```{r eval=FALSE, include=FALSE}
-library(plotly)
-
-df <- read.csv("https://cdn.rawgit.com/plotly/datasets/master/GanttChart-updated.csv", 
-               stringsAsFactors = F)
-
-df$Start  <- as.Date(df$Start, format = "%m/%d/%Y")
-client    <- "Sample Client"
-cols      <- RColorBrewer::brewer.pal(length(unique(df$Resource)), name = "Set3")
-df$color  <- factor(df$Resource, labels = cols)
-
-p <- plot_ly()
-for(i in 1:(nrow(df) - 1)){
-  p <- add_trace(p,
-                 x = c(df$Start[i], df$Start[i] + df$Duration[i]), 
-                 y = c(i, i), 
-                 mode = "lines",
-                 line = list(color = df$color[i], width = 20),
-                 showlegend = F,
-                 hoverinfo = "text",
-                 text = paste("Task: ", df$Task[i], "<br>",
-                              "Duration: ", df$Duration[i], "days<br>",
-                              "Resource: ", df$Resource[i]),
-                 evaluate = T
-  )
-}
-
-p
-```
-
-
----
-
-
-```{r}
-# All packages used below must be installed first
-library(devtools)
-# devtools::install_github("laresbernardo/lares")
-library(lares)
-library(ggplot2)
-library(hrbrthemes)
-library(ggrepel)
-
-library(tidyverse)
-theme_set(theme_bw(base_size=12, base_family = 'Nunito')+ 
-  theme(panel.grid.major = element_blank(),
-  panel.grid.minor = element_blank()))
-
-
-plot_timeline2 <- function(event, start, end = start + 1, label = NA, group = NA,
-                           title = "", subtitle = "", size = 8, colour = "red", save = FALSE, subdir = NA) {
-  df <- data.frame(
-    Role = as.character(event), Place = as.character(label),
-    Start = lubridate::date(start), End = lubridate::date(end),
-    Type = group)
-  
-  cvlong <- data.frame(pos = rep(as.numeric(rownames(df)),2), 
-                       name = rep(as.character(df$Role), 2), 
-                       type = rep(factor(df$Type, levels = c("Life", "Education", "Work\n Teaching and\n research", "Work\n industry", "Heart")), 2), 
-                       where = rep(as.character(df$Place),2), value = c(df$Start, df$End), label_pos = rep(df$Start + floor((df$End - df$Start)*2), 2))
-  
-  maxdate <- max(df$End)
-  
-  p <- ggplot(cvlong, aes(x = value, y = reorder(name, -pos), label = where, group = pos)) +
-          geom_vline(xintercept = maxdate,
-                     alpha = 0.8, 
-                     linetype = "dashed") + 
-          labs(title = title, subtitle = subtitle, x = NULL, y = NULL, colour = NULL) +
-          theme_ipsum() + 
-          theme(panel.background = element_rect(fill = "white", colour = NA), 
-                axis.ticks = element_blank(), 
-                panel.grid.major.x = element_line(size = 0.25, colour = "grey80"))
-
-if (!is.na(cvlong$type)[1] | length(unique(cvlong$type)) > 1) {
-    p <- p + geom_line(aes(color = type), size = size) +
-      facet_grid(type ~ ., scales = "free", space = "free") +
-      guides(colour = FALSE) +
-      scale_colour_manual(values = c("#8fada7", "#7c839f", "#a19aa3", "#a46e7c", "#635867" ))
-  }
-  else {
-    p <- p + geom_line(size = size, colour = colour) 
-             #geom_text_repel()
-  }
-  #p <- p + geom_text(aes(x = label_pos))
-     
-   #  geom_label_repel(aes(x = label_pos), 
-   #                         position = "dodge",
-   # size = 4,
-   # alpha = 0.9,
-   # segment.size = .25,
-   # segment.alpha = .8)
-  
-  
-  if (save) {
-    file_name <- "cv_timeline.png"
-    if (!is.na(subdir)) {
-      dir.create(file.path(getwd(), subdir), recursive = T)
-      file_name <- paste(subdir, file_name, sep = "/")
-    }
-    p <- p + ggsave(file_name, width = 8, height = 6)
-    message(paste("Saved plot as", file_name))
-  }
-  return(p)
-}
-order <- c("Role", "Place", "Type", "Start", "End")
-today <- as.character(Sys.Date())
-### Edit from here ###
-cv <- data.frame(rbind(
-  c("Basic education", "BH", "Education", "1979-06-01", "1996-12-01"),
-  c("B.Sc. Civil Engineering", "UFMG", "Education", "1997-02-01", "2002-01-08"),
-  c("PgDip.in Railway Engineering", "Vale", "Education", "2003-09-15", "2004-04-20"),
-  c("M.Sc. Transportation Engineering", "IME", "Education", "2002-02-01", "2004-08-02"),
-  c("D.Sc. Geography", "PUCMinas", "Education", "2011-02-01", "2015-08-20"),
-  c("Patrick", "My love", "Heart", "2001-05-31", today),
-  c("Sofia", "More love", "Heart", "2009-09-01", today),
-  c("João", "More and more love", "Heart", "2012-12-05", today),
-  c("English Teacher", "Home", "Work\n Teaching and\n research", "1996-03-01", "2001-06-30"),
-  c("Assistant lecturer", "Different institutions", "Work\n Teaching and\n research", "2003-01-01", "2006-02-09"),
-  c("Teaching and research fellow", "UFMG", "Work\n Teaching and\n research", "2017-08-01", "2021-07-01"),
-  c("Teaching and research", "CEFET-MG", "Work\n Teaching and\n research", "2006-02-10", today),
-  c("Postdoctoral researcher", "Gustave Eiffel", "Work\n Teaching and\n research", "2020-10-01", "2021-06-30"),
-  c("Transportion and Urban Planner", "IAC-UFT", "Work\n industry", "2020-07-01", "2021-01-31"),
-  c("Railway Engineer", "Vale", "Work\n industry", "2003-09-15", "2005-05-01"),
-  c("Consultant in Transporation Engineering", "Systra/Tectran", "Work\n industry", "2003-02-01", "2003-09-15"),
-  c("Birth", "BH", "Life", "1979-02-26", today),
-  c("International experience", "Idaho-US", "Life", "1995-08-01", "1996-02-01"),
-  c("International experience", "France", "Life", "2013-06-20", "2013-12-31")
-))
-
-
-### Edit until here ###
-colnames(cv) <- order
-colour <- c("#45776D", "#454F77", "#635867", "#7e3145")
-x <- plot_timeline2(
-  event = cv$Role,
-  start = cv$Start,
-  end = cv$End,
-  label = cv$Place,
-  group = cv$Type,
-  save = FALSE)  # replace with your name
-
-x
-
-ggsave("cv_timeline.png", width = 8, height = 6)
-    
-```
-
 
 
 ---
@@ -262,12 +70,26 @@ class: center, middle
 background-image: url(img/flower2.jpg)
 background-size: cover
 
-# Who am I?
+.huge[Understanding the world...]
 
-##That's 70s show
+
+---
+class: center, middle
+background-image: url(img/flower2.jpg)
+background-size: cover
+
+```{r time, echo=FALSE, fig.cap="", message=FALSE, warning=FALSE, out.width="95%"}
+knitr::include_graphics("img/understand.png")
+```
+
+---
+background-image: url(img/flower2.jpg)
+background-size: cover
+
+## That's 70s show
 
 .pull-left[
-```{r pais, echo=FALSE, fig.cap="1979", out.width="90%"}
+```{r pais, echo=FALSE, out.width="90%"}
 knitr::include_graphics("img/pais.jpg")
 ```  
 ]
@@ -284,125 +106,127 @@ IMG_20210513_194541444
 
 I was born in 1979, in Belo Horizonte, Brazil. 
 
+---
+background-image: url(img/flower2.jpg)
+background-size: cover
+
+## That's 70s show
+
+```{r eu, echo=FALSE, out.width="60%"}
+knitr::include_graphics("img/reta_baby_1.jpg")
+```  
+
+???
+
+IMG_20210513_194541444
+
+I was born in 1979, in Belo Horizonte, Brazil. 
 
 ---
-
 class: middle, center
+background-image: url(img/bh_pic.png)
+background-size: cover
 
-# Who am I?
+--
 
-```{r bh, echo=FALSE, out.width="80%"}
+```{r bh, echo=FALSE, out.width="65%"}
 knitr::include_graphics("img/bh.png")
 ```  
 
 
+
+
+---
+background-image: url(img/idaho.png)
+background-size: cover
+
+
+---
+class: center, middle
+background-image: url(img/change1.jpg)
+background-size: cover
+
+.huge[Learning and teaching...]
+
+
+---
+class: center, middle
+background-image: url(img/change1.jpg)
+background-size: cover
+
+```{r time1, echo=FALSE, fig.cap="", message=FALSE, warning=FALSE, out.width="95%"}
+knitr::include_graphics("img/understanding1.png")
+```
+
+---
+class: 
+background-image: url(img/change1.jpg)
+background-size: cover
+
+.purple[
+.larger[
+English Teacher: 1996-2000
+]]
+
+```{r english, echo=FALSE, out.width="90%"}
+knitr::include_graphics("img/teachinghub3a.jpg")
+``` 
+
+---
+background-image: url(img/thisisengineering-raeng-lSgfUoyyDwI-unsplash.jpg)
+background-size: cover
+
+.yellow[
+.larger[
+Civil Engineering and carreer choice
+]]
+
+.yellow[.bigger[
+- Students council and institutional representation
+- Undergrauduate Program for Scientific Training]]
+
+.off-white[.bigger[
+       - “Residential Mobility and Transportation System in the Metropolitan Region of Belo Horizonte” 
+]]
+.yellow[.bigger[
+- Final semester: Transportation Engineering
+]]
 ---
 
 class: center
-background-image: url(img/idaho.jpg)
+background-image: url(img/change1.jpg)
 background-size: cover
 
-.pull.right[
+```{r forma, echo=FALSE, out.width="100%"}
+knitr::include_graphics("img/forma.png")
+```  
 
-```{r echo=FALSE, fig.cap="", out.width="10%", fig.align='right'}
-knitr::include_graphics("img/idaho.png")
-```
+---
+class: center
+background-image: url(img/change1.jpg)
+background-size: cover
 
-]
+
+```{r forma1, echo=FALSE, out.width="100%"}
+knitr::include_graphics("img/forma1.png")
+``` 
 
 ---
 
-background-image: url(img/teach.jpg)
+background-image: url(img/change1].jpg)
 background-size: cover
 
-
----
-
-background-image: url(img/eng.jpg)
-background-size: cover
-
----
-
-class: bottom, center
-background-image: url(img/all1.jpg)
-background-size: cover
-
-.green[
-.larger[
-Identidade como engenheira
-]
-]
-
----
-
-class: center, middle
-background-image: url(img/room1.jpg)
-background-size: cover
-
-.pink[
-.larger[
-Representação discente
-]
-]
-
----
-
-background-image: url(img/mobility.jpg)
-background-size: cover
-
-# Iniciação científica
+# Master degree
 
 
-.bold[
-.pull-left[
-“Mobilidade Residencial e Sistema de Transporte na Região Metropolitana de Belo Horizonte” 
-
-
-Prof. David José Ahouagi Vaz de Magalhães
-]
-]
-
-
----
-
-class: bottom, center
-background-image: url(img/transport.jpg)
-background-size: cover
-
-
-.yellow[
-.larger[
-Engenharia de transportes
-]
-]
-
----
-
-class: bottom, center
-background-image: url(img/forma.jpg)
-background-size: cover
-
-.yellow[
-.larger[
- 2001/2002
-]]
-
----
-
-background-image: url(img/ime.jpg)
-background-size: cover
-
-
-# Mestrado
-
-.yellow[
-.pull-left[
 .large[
-Instituto Militar de Engenharia
+Military Institute of Engineering - M.Sc. Transportation Engineering
 
+"Neuro-Fuzzy Model for Freight Transport Mode Choice"
+
+Supervisor: Prof. Marcus Vinícius Quintela Cury
 ]
-]
-]
+
 
 <br></br>
 <br></br>
@@ -411,20 +235,27 @@ Instituto Militar de Engenharia
 
 .center[
 .larger[
-.yellow[
-2002
-]]]
+2002-2004
+]]
+
+---
+
+
+
+---
+background-image: url(img/change1].jpg)
+background-size: cover
+
+New Horizons College    
+
+Community Foundation for Higher Education of Itabira
+
+Department of Transportation Engineering and Geotechnics - UFMG
 
 ---
 
 background-image: url(img/change1].jpg)
 background-size: cover
-
-.larger[
-2003
-]
-
---
 
 .pull-left[
 .large[
@@ -434,13 +265,6 @@ Tectran - Ramón Vitor César
 
 --
 
-.pull-left[
-.large[
-.bold[
-Faculdade Novos Horizontes   
-]]]
-
---
 
 .pull-left[
 .large[
@@ -451,6 +275,8 @@ Vale - Engenharia Ferroviária
 ]
 
 ---
+background-image: url(img/change1].jpg)
+background-size: cover
 
 .pull-left-wide[
 ```{r vale, echo=FALSE, fig.cap="", out.width="100%"}
@@ -480,64 +306,13 @@ Análise do Aumento de Confiabilidade das Locomotivas da Rota do Grão a Partir 
 
 
 ---
-
-background-image: url(img/master.jpg)
+background-image: url(img/cefet1.png)
 background-size: cover
 
-.larger[
-2004
-]
-
-.large[
-Neuro-Fuzzy Model for Modal Choice in Freight Transport
-]
-
-Supervisor: *Marcus Vinícius Quintella Cury*
-
 .center[
 .larger[
-.pink[
-c
-]]]
-
----
-
-
-.pull-left[
-.large[
-.larger[
-2005
-]
-.bold[
-New Horizons College    
-
-Community Foundation for Higher Education of Itabira
-
-Department of Transportation Engineering and Geotechnics - UFMG
-]
-]
-]
-
-.pull-right[
-```{r , echo=FALSE, fig.cap="", out.width="100%"}
-knitr::include_graphics("img/teacher.jpg")
-```
-.center[
-.green[
-Tender for CEFET-MG
-]
-]
-]
-
-
----
-
-background-image: url(img/cefet1.png)
-
-.larger[
-
 2006 - 2009
-]
+]]
 
 
 .bold[
@@ -557,12 +332,116 @@ Coordenação de cursos
 ]
 
 --
+**Transportation Engineering Department**
+Sub-coordination and coordination of Transportation Engineering undergraduate course   
+Introduction to Transportation Engineering ❤️   
+Scientific Initiation and Junior Scientific Initiation students
+
+.pull-right[
+```{r enge, echo=FALSE, fig.cap="Encontro Nacional dos coordenadores de cursos de graduação", message=FALSE, warning=FALSE, fig.align = 'center',out.width="100%"}
+knitr::include_graphics("img/enges.jpg")
+```
+]
+
+---
+background-image: url(img/cefet1.png)
+
 
 .bold[
-Transportation Engineering
-c
+.larger[
+2020 - today   
+Administração
+]]
 
+
+.bigger[
+- Research Ethics Committee CEP/CEFET-MG;
+--
+- Thematic commitee for research projects assessment;
+--
+- Participation in Examining Boards for different positions in Technological Education career;
+--
+- Participation in Examining Boards of the simplified positions for temporary teachers;
+--
+- Other temporary commissions;
 ]
+
+---
+
+class: middle
+
+
+❤️❤️
+
+
+.pull-left[
+```{r nos2, echo=FALSE,  message=FALSE, warning=FALSE, out.width="70%"}
+knitr::include_graphics("img/nos2.jpg")
+```
+]
+
+.pull-right[
+```{r nos3, echo=FALSE,  message=FALSE, warning=FALSE, out.width="70%"}
+knitr::include_graphics("img/nos3.jpg")
+```
+]
+
+---
+class: middle
+
+
+❤️❤️
+
+
+
+.pull-left[
+```{r sofia, echo=FALSE,  message=FALSE, warning=FALSE, out.width="70%"}
+knitr::include_graphics("img/sofia1.png")
+```
+]
+
+.pull-right[
+```{r sofia2, echo=FALSE,  message=FALSE, warning=FALSE, out.width="50%"}
+knitr::include_graphics("img/sofia2.png")
+```
+]
+
+---
+
+class: middle
+
+❤️❤️
+
+
+.pull-left[
+```{r joao, echo=FALSE, message=FALSE, warning=FALSE, out.width="70%"}
+knitr::include_graphics("img/joao1.png")
+```
+]
+
+.pull-right[
+```{r joao2, echo=FALSE, message=FALSE, warning=FALSE, out.width="50%"}
+knitr::include_graphics("img/joao2.png")
+```
+]
+
+
+---
+class: center, middle
+background-image: url(img/butterfly.jpg)
+background-size: cover
+
+.huge[Producing and sharing knowlegde for a better world...]
+
+---
+
+class: center, middle
+background-image: url(img/butterfly.jpg)
+background-size: cover
+
+```{r time2, echo=FALSE, fig.cap="", message=FALSE, warning=FALSE, out.width="95%"}
+knitr::include_graphics("img/understanding2.png")
+```
 
 ---
 
@@ -570,7 +449,7 @@ background-image: url(img/puc.png)
 background-size: container
 
 .larger[
-2010-2015
+2011-2015
 ]
 
 
@@ -579,7 +458,6 @@ background-size: container
 Geography - Spatial Information Treatment   
 ]]
 
-*Oswaldo Bueno Amorim Filho*   
 *Alexandre Magno Alves Diniz*
 
 .bold[
@@ -591,6 +469,9 @@ Período sanduíche no Institut Rhônalpin des Systèmes Complexes
 *Prof. Pablo Jensen*
 
 
+Spatial Analysis of the correlation among the location of grocery
+retailers, the average income of the population and prices policy: a case
+study for Belo Horizonte.
 
 ---
 
@@ -638,43 +519,6 @@ Programa de mestrado em Geotecnia e Transportes da UFMG
 
 ---
 
-background-image: url(img/cefet1.png)
-
-.bold[
-.larger[
-2015 - 2019  
-]]
-
-Departamento de Engenharia de Transportes   
-Sub-coordenação e depois coordenação da Engenharia de Transportes   
-Introdução à Engenharia de Transportes ❤️   
-Alunos de Iniciação Científica e Iniciação Científica Júnior
-
-.pull-right[
-```{r enge, echo=FALSE, fig.cap="Encontro Nacional dos coordenadores de cursos de graduação", message=FALSE, warning=FALSE, fig.align = 'center',out.width="100%"}
-knitr::include_graphics("img/enges.jpg")
-```
-]
-
----
-background-image: url(img/cefet1.png)
-
-
-
-.bold[
-.larger[
-2015...   
-Administração
-]]
-
-.bold[
-.midi[
--   Comitê de Ética em Pesquisa CEP/CEFET-MG;
--   Câmaras Temáticas da Comissão de Iniciação;
--   Participação em Bancas Examinadoras do Concurso Público de Provas e Títulos para provimento de cargas da carreira de Magistério do Ensino Básico, Técnico e Tecnológico;
--   Participação em bancas examinadoras de processo seletivo simplificado para professores substitutos/temporários;
--   Outras comissões temporárias;
-]]
 
 ---
 
@@ -734,10 +578,6 @@ Urban Rail Transit
 Caderno de geografia   
 Revista Brasileira de Transportes.   
 ]
-
-
-
-
 
 ---
 
@@ -912,73 +752,87 @@ background-size: cover
 
 ---
 
-class: middle, center
-background-image: url(img/butterfly.jpg)
+---
+class: center, middle
+background-image: url(img/flower2.jpg)
 background-size: cover
 
+.huge[Why Chalmers and where to go...]
+
 
 ---
 
 .bold[
 .large[
-Ensinar sem saber - ser curadora - ensinar a aprender
+Reduce distance among faculty and students
+
+Teaching and learning - being a tutor - teaching to learn
 ]]
 
 --
 
 .bold[
 .large[
-Perspectiva crítica até nas disciplinas mais positivistas
+Critical perspective even in the most positivist disciplines
 ]]
 
 --
 
 .bold[
 .large[
-Diversão - gamificação e protagonismo do estudante
+Fun - gamification and student protagonism
 ]]
 
 --
 
 .bold[
 .large[
-Adaptação - Ensino Remoto Emergencial
+Adaptation - Emergency Remote Learning
 ]]
 
 --
 
 .bold[
 .large[
-Estudar, estudar, estudar e estudar mais ainda!
+Study, study, study, and study some more!
 ]]
 
 --
 
 .bold[
 .large[
-Contribuir para a construção de melhores lugares para se viver
+Contribute to building better places to live, human scale cities and social justice - And this is what drives Chalmers
 ]]
 
 --
 
 .bold[
 .large[
-Comunicação da ciência - OpenScience
+Communicating Science - OpenScience
 ]]
 
 ---
+How
 
+
+---
+What
+
+
+---
 
 class: center
 background-image: url(img/passion.jpg)
 background-size: cover
 
+.bold[
+.large[
+“To TEACH, one needs Eros” Platão
 
-> “Para ENSINAR, necessita-se de Eros” Platão
+To LEARN, one needs Eros. Renata
 
-> Para APRENDER, necessita-se de Eros. Renata
-
-> Para produzir CONHECIMENTO, necessita-se de Eros. Renata
+To produce KNOWLEDGE, one needs Eros. Renata
+]]
 
 ---
 
@@ -993,110 +847,8 @@ background-image: url(img/dist.jpg)
 background-size: cover
 
 .larger[
-Reduzir distâncias....
+Creating life and reducing distances....
 ]
----
-
-class: bottom, center
-background-image: url(img/SMILE.jpg)
-background-size: cover
-
-.larger[
-Sempre há esperança!
-]
-
----
-
-# Inspirações
-
-Camila Soares Henrique Fontanele Garcia
-
-Carlos Felipe Grangeiro Loureiro
-
-André Soares Lopes
-
-Camila Bandeira Cavalcante
-
-Francelino Franco Leite de Matos Sousa
-
-Francisco Gildemir Ferreira da Silva
-
-Bruno Vieira Bertoncini
-
----
-
-# Inspirações
-
-Lílian dos Santos Fontes Pereira Bracarense
-
-José Geraldo Vidal Vieira
-
-Lucélia Viviane Vaz Raad
-
-Ludmila de Vasconcelos Machado Guimarães
-
-Joana Ancila Pessoa Forte Avelino
-
-E muitas outras pessoas que marcaram minha vida!
-
-
----
-
-# Onde bate meu coração ...
-
-❤️Maio de 2001 - Começamos a namorar!   
-❤️Setembro de 2001 - Ficamos noivos!   
-❤️Dezembro de 2002 - Moramos juntos!   
-❤️Julho de 2005 - Casamos!   
-❤️Novembro de 2009 - Chegada da Sofia nas nossas vidas!   
-❤️Dezembro de 2012 - Chegada do João nas nossas vidas!   
-❤️Maio de 2021 - Sigo a mulher, mãe, professora, pesquisadora e cidadã mais feliz do mundo!
-
----
-
-class: center, middle
-
-.larger[
-❤️**Amo vocês!**❤️
-]
-
----
-
-```{r nos2, echo=FALSE, fig.cap="Respeito", message=FALSE, warning=FALSE, out.width="70%"}
-knitr::include_graphics("img/nos2.jpg")
-```
-
----
-
-```{r nos3, echo=FALSE, fig.cap="Gratidão", message=FALSE, warning=FALSE, out.width="70%"}
-knitr::include_graphics("img/nos3.jpg")
-```
-
----
-
-```{r sofia, echo=FALSE, fig.cap="Fulustreca", message=FALSE, warning=FALSE, out.width="70%"}
-knitr::include_graphics("img/sofia1.png")
-```
-
----
-
-```{r sofia2, echo=FALSE, fig.cap="Zequinha", message=FALSE, warning=FALSE, out.width="50%"}
-knitr::include_graphics("img/sofia2.png")
-```
-
----
-
-```{r joao, echo=FALSE, fig.cap="Zezé", message=FALSE, warning=FALSE, out.width="70%"}
-knitr::include_graphics("img/joao1.png")
-```
-
----
-
-```{r joao2, echo=FALSE, fig.cap="Chouchou", message=FALSE, warning=FALSE, out.width="50%"}
-knitr::include_graphics("img/joao2.png")
-```
-
-
 ---
 
 class: inverse
@@ -1136,3 +888,17 @@ background-size: cover
 .pink[
 **Muito obrigada**!
 ]]
+
+---
+
+```{r eval=FALSE, include=FALSE}
+library(ggwordcloud)
+#> Loading required package: ggplot2
+data("love_words_small")
+set.seed(42)
+ggplot(love_words_small, aes(label = word, size = speakers)) +
+  geom_text_wordcloud() +
+  scale_size_area(max_size = 40) +
+  theme_minimal()
+```
+
