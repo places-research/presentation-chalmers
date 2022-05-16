@@ -404,20 +404,18 @@ knitr::include_graphics("img/sofia2.png")
 class: middle
 
 ❤️❤️
-
-
 .pull-left[
 ```{r joao, echo=FALSE, message=FALSE, warning=FALSE, out.width="70%"}
 knitr::include_graphics("img/joao1.png")
 ```
 ]
+
 ❤️❤️
 .pull-right[
 ```{r joao2, echo=FALSE, message=FALSE, warning=FALSE, out.width="50%"}
 knitr::include_graphics("img/joao2.png")
 ```
 ]
-
 
 ---
 class: center, middle
@@ -445,26 +443,19 @@ background-size: container
 2011-2015
 ]
 
-
-.bold[
 .large[
 Geography - Spatial Information Treatment   
-]]
+]
 
 *Alexandre Magno Alves Diniz*
 
-.bold[
 .large[
 Período sanduíche no Institut Rhônalpin des Systèmes Complexes   
-]
 ]
 
 *Prof. Pablo Jensen*
 
-
-Spatial Analysis of the correlation among the location of grocery
-retailers, the average income of the population and prices policy: a case
-study for Belo Horizonte.
+Spatial Analysis of the correlation among the location of grocery retailers, the average income of the population and prices policy: a case study for Belo Horizonte.
 
 ---
 
