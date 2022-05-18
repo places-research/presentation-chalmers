@@ -76,6 +76,11 @@
   color: var(--yellow);
 }
 
+.orange {
+  color: #f79333;
+}
+
+
 .green-back {
   color: var(--green-back);
 }
@@ -350,21 +355,17 @@ a, a > code {
 /* Footnote */
 .footnote {
   padding-left: 10px;
-}
-
-.footnote {
+  color: #88398A;
   position: absolute;
   bottom: 60px;
   padding-right: 3em;
-  font-size: 0.9em;
-  border-top: 3px solid #504556;
+  font-size: 1.5em;
+  font-weight: bold;
+  border-top: 3px solid #2c8475;
 }
 
 
-
 /* Footer */
-
-
 div.my-footer {
     border-top: 3px solid #b56b6f;
     position: absolute;
