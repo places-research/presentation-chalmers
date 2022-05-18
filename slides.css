@@ -11,7 +11,8 @@
 @import url('https://fonts.googleapis.com/css2?family=Work+Sans:ital,wght@0,300;0,400;1,300&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Tinos&family=Work+Sans:ital,wght@0,300;0,400;1,300&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Tinos&family=Work+Sans:ital,wght@0,300;0,400;1,300&display=swap');
-
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Slab&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Lora:ital@1&family=Montserrat:wght@300&family=Noto+Sans:wght@200&family=Nunito&family=Shadows+Into+Light&family=Zen+Loop&display=swap');
 
 /* Turn off slide numbers */
 /* Don't want them on videos! */
@@ -30,44 +31,43 @@
 
 .remark-slide-number .progress-bar {
   height: 100%;
-  background-color: #c09b28;
+  background-color: #b56b6f;
 }
 
 /* colors */
 :root {
 /* Fonts */
-  --text-font-family: 'Open Sans', sans-serif;
-  --text-chalmers-font-family: 'Open Sans', sans-serif;
+  --text-font-family: 'Nunito', sans-serif;
   --text-font-is-google: 1;
-  --text-font-family-fallback: 'Open Sans', sans-serif;
-  --text-font-base: 'Open Sans', sans-serif;
-  --header-font-family: 'Open Sans', sans-serif;
+  --text-font-family-fallback: 'Nunito', sans-serif;
+  --text-font-base: 'Nunito', sans-serif;
+  --header-font-family: 'Shadows Into Light', cursive;
   --header-font-is-google: 1;
-  --code-font-family: 'Open Sans', sans-serif;
+  --code-font-family: 'Noto Sans', sans-serif;
   --code-font-is-google: 1;
   --base-font-size: 20px;
   --text-font-size: 2.5rem;
   --code-font-size: 20px;
   --code-inline-font-size: 1em;
   --header-h1-font-size: 3.5rem;
-  --header-h2-font-size: 2rem;
+  --header-h2-font-size: 3rem;
   --header-h3-font-size: 1.5rem;
   
   /* Colors */
   --text-color: #000000;
-  --header-color: #504556;
-  --background-color: #e9ecec;
-  --link-color: #ebdb00;
-  --text-bold-color: #504556;
-  --code-highlight-color: #ebdb00;
-  --inverse-text-color: #ebdb00;
-  --inverse-background-color: #504556;
-  --inverse-header-color: #ebdb00;
+  --header-color: #b56b6f;
+  --background-color: #f8f8f8;
+  --link-color: #f79333;
+  --text-bold-color: #2c8475;
+  --code-highlight-color: #887ba3;
+  --inverse-text-color: #f8f8f8;
+  --inverse-background-color: #2c8475;
+  --inverse-header-color: #4c3a78;
   --title-slide-background-color: #e9ecec;
   --title-slide-text-color: #504556;
   --header-background-color: #A7D5E8;
-  --header-background-text-color: #002b36;
-  --purple: #504556;
+  --header-background-text-color: #887ba3;
+  --purple: #4c3a78;
   --yellow: #ebdb00;
 }
   
@@ -107,8 +107,9 @@
 /* Title slide customization */
 .title-slide h1, h2, h3 {
   text-align: left;
-  font-family: 'Open Sans', sans-serif;
-  color: var(--dark-gray);
+  font-family: 'Shadows Into Light', cursive;
+  color: var(--header-color);
+  font-size: 130%;
 }
 
 .title-slide h2 {
@@ -151,11 +152,11 @@ h1{
 }
 
 h2 {
-  font-family: var(--text-font-family);
+  font-family: var(--header-font-family);
   font-weight: bold;
   color: var(--header-color);
   line-height: 1em;
-  padding-top: 20px;
+  padding-top: 10px;
   
 }
 
@@ -230,22 +231,21 @@ a, a > code {
 
 /* Font sizes */
 .enormous {
-   font-family: 'Open Sans', sans-serif;
-   font-size: 500%;
-   font-weight: bold;
-   color: var(--purple);
+  font-size: 400%;
+  font-weight: bold;
+  text-align: left;
+  font-family: 'Shadows Into Light', cursive;
+  color: var(--header-color);
 }
 
 
 .huge {font-size: 350%;
          font-weight: bold;
-         font-family: 'Open Sans', sans-serif;
 }
 
 
 .larger {font-size: 300%;
          font-weight: bold;
-         font-family: 'Open Sans', sans-serif;
 }
 
 .large { font-size: 200% }
@@ -366,12 +366,12 @@ a, a > code {
 
 
 div.my-footer {
-    border-top: 3px solid var(--inverse-background-color);
+    border-top: 3px solid #b56b6f;
     position: absolute;
     bottom: 0px;
     height: 40px;
     width: 90%;
-    font-family: 'Open Sans', sans-serif;
+    font-family: 'Nunito', sans;
 }
 
 div.my-footer span {
@@ -379,12 +379,13 @@ div.my-footer span {
     position: absolute;
     bottom: 10px;
     left: 10px;
-    color: var(--inverse-background-color);
+    color: #b56b6f;
 }
 
 div.my-footer a {
     font-size: 20px;
-    color: var(--inverse-background-color);
+    color: #b56b6f;
+       font-weight: bold;
 }
 
 /* Square bullets for lists */
@@ -519,7 +520,7 @@ table.dataTable.hover tbody tr:hover, table.dataTable.display tbody tr:hover {
   color: var(--text-color) !important;
 }
 
-.reduced_opacity {
+.reduced_opacity::after {
   opacity: 0.5;
 }
 

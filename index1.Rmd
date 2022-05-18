@@ -1215,3 +1215,134 @@ background-size: cover
 .pink[
 **Muito obrigada**!
 ]]
+
+
+---
+
+```{r eval=FALSE, include=FALSE}
+library(ggwordcloud)
+#> Loading required package: ggplot2
+data("love_words_small")
+set.seed(42)
+ggplot(love_words_small, aes(label = word, size = speakers)) +
+  geom_text_wordcloud() +
+  scale_size_area(max_size = 40) +
+  theme_minimal()
+```
+
+---
+
+class: middle
+
+
+❤️❤️
+
+
+.pull-left[
+```{r nos2, echo=FALSE,  message=FALSE, warning=FALSE, out.width="70%"}
+knitr::include_graphics("img/nos2.jpg")
+```
+]
+
+❤️❤️
+.pull-right[
+```{r nos3, echo=FALSE,  message=FALSE, warning=FALSE, out.width="70%"}
+knitr::include_graphics("img/nos3.jpg")
+```
+]
+
+---
+class: middle
+
+
+❤️❤️
+
+
+
+.pull-left[
+```{r sofia, echo=FALSE,  message=FALSE, warning=FALSE, out.width="70%"}
+knitr::include_graphics("img/sofia1.png")
+```
+]
+❤️❤️
+.pull-right[
+```{r sofia2, echo=FALSE,  message=FALSE, warning=FALSE, out.width="50%"}
+knitr::include_graphics("img/sofia2.png")
+```
+]
+
+---
+
+class: middle
+
+❤️❤️
+.pull-left[
+```{r joao, echo=FALSE, message=FALSE, warning=FALSE, out.width="70%"}
+knitr::include_graphics("img/joao1.png")
+```
+]
+
+❤️❤️
+.pull-right[
+```{r joao2, echo=FALSE, message=FALSE, warning=FALSE, out.width="50%"}
+knitr::include_graphics("img/joao2.png")
+```
+]
+
+---
+
+---
+
+.bold[
+.larger[
+2018 ...    
+Internacionalização
+]]
+
+.midi[
+4th VREF Conference. Relationships among urban characteristics, real estate market and spatial patterns of warehouses in different geographic contexts. 2021.
+
+11th International Conference on City Logistics. EXPLORATORY ANALYSIS OF THE ACCESSIBILITY TO FOOD RETAILERS IN BELO HORIZONTE. 2019. 
+
+15th biannual NECTAR Conference. ACCESSIBILITY TO FOOD SYSTEMS IN BELO HORIZONTE, BRAZIL. 2019. ❤️
+
+6th workshop NIUMAR. Projects under development and research agenda. 2019. ❤️
+]
+
+---
+
+.midi[
+
+1st Brazilian EMI. 2018.
+
+3rd workshop NIUMAR. Perspectivas de parceria. 2018. ❤️
+
+4th workshop NIUMAR. Encaminhamentos. 2018. ❤️
+
+Workshop do Cluster 2 do Nectar. A sustainable business model for urban farming based on city logistics concepts for local production and consumption of vegetables. 2018. ❤️
+
+
+]
+
+---
+
+
+.midi[
+Efficiency in Urban Logistics: Current challenges, innovative & green solutions. 2017.
+
+Researchers Links Workshop: How the Railways contribute to improving quality of life?. Researchers Links Workshop. 2017. ❤️
+
+2nd workshop da NIUMAR. Desenvolvimento de pesquisa. 2018. (Seminário). ❤️
+
+Semana Internacional de Engenharia Metroferroviária, Transportes e Logística. Análise espacial aplicada a soluções para o último quilômetro. 2017.
+]
+
+Tenth International Conference on City Logistics. Urban Distribution of Craft-Brewed Beer in Belo Horizonte Metropolitan Area. 2017.
+
+Cyprien Legros   
+Jonathan Reith   
+Joanna Wilkolek   
+Neda Marjanovic   
+]
+
+---
