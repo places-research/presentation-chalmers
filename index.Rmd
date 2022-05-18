@@ -491,7 +491,8 @@ knitr::include_graphics("img/horta.jpg")
 ]
 
 ---
-*Processos e sistemas decisórios em arranjos organizacionais*
+
+## Graduate Students
 
 - Sofia Eleutério - trabalho sobre o processo decisório quanto à implementação de faixas exclusivas de ônibus como política pública.
 - Felipe - caracterização da atividade e políticas públicas para vendedores ambulantes em BH   
@@ -515,12 +516,14 @@ Logistics City Chair, da Université Gustave Eiffel
 ## External Funding 
 
 .pull-left[
-RENOVATE - 
+.bigger[
+**RENOVATE - Freight transport webGIS tools for livable cities**
 
-]
+MSCA Postdoctoral Fellowship 2021
+]]
 
 .pull-right[
-```{r echo=FALSE, message=FALSE, warning=FALSE, out.width="60%"}
+```{r echo=FALSE, message=FALSE, warning=FALSE, out.width="50%"}
 knitr::include_graphics("img/2022-05-06 22_30_58-Seal of Excellence.pdf - Foxit Reader.png")
 ```
 ]
