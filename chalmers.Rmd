@@ -1,0 +1,93 @@
+---
+title: "Untitled"
+author: "Renata Oliveira"
+date: '2022-05-15'
+output: html_document
+---
+
+
+```{r message=FALSE, warning=FALSE, include=FALSE}
+pacman::p_load(
+  tidyverse,      # includes ggplot2 and other
+  rio,            # import/export
+  here,           # file locator
+  stringr,        # working with characters   
+  scales,         # transform numbers
+  ggrepel,        # smartly-placed labels
+  gghighlight,    # highlight one part of plot
+  RColorBrewer,    # color scales
+  lares,
+  ggplot2,
+  hrbrthemes,
+  ggrepel,
+  plotly,
+  tidyverse,
+  extrafont
+)
+```
+
+
+
+```{r echo=FALSE, message=FALSE, warning=FALSE}
+
+order <- c("Role", "Type", "Start", "End")
+
+today <- as.character(Sys.Date())
+
+cv <- data.frame(rbind(
+  c("Develop a research identity", "Research", "2022-05-2024", "2023-06-01"),
+  c("Consolidate a research group", "Research", "2022-05-2024", "2024-06-01"),
+  c("Contribute to building prosperous and better places to live, human scale cities and social justice", "Research", "2022-05-2024", "2050-01-01"),
+  c("Communicating Science - OpenScience",  "Research", "2022-05-2024", "2050-01-01"),
+  c("International collaboration",  "Research", "2022-05-2024", "2050-01-01"),
+  c("Engage in research collaboration" , "Research", "2022-05-24", "2050-01-01"),
+  c("Engage students in lifelong learning",  "Education", "2022-05-2024", "2050-01-01")
+
+))
+
+colnames(cv) <- order
+
+colour <- c("#8fada7", "#7c839f", "#a19aa3", "#a46e7c", "#FFB2B2" )
+
+plot_timeline2 <- function(event, start, end = start + 1, label = NA, group = NA,
+                           size = 8, colour = "black", save = FALSE, subdir = NA) {
+  
+  df <- data.frame(Role = as.character(event), 
+                   Start = lubridate::date(start), 
+                   End = lubridate::date(end),
+                   Type = group)
+  
+  cvlong <- data.frame(pos = rep(as.numeric(rownames(df)),2), 
+                       name = rep(as.character(df$Role), 2), 
+                       type = rep(factor(df$Type, levels = c("Education", "Research")), 2), 
+                       value = c(df$Start, df$End))
+  
+  maxdate <- max(df$End)
+  
+  mindate <- max(df$Start)
+  
+  p <- ggplot(cvlong, aes(x = value, y = reorder(name, -pos), group = pos)) + 
+          geom_vline(xintercept = mindate, alpha = 1, linetype = "dashed", size = 2) + 
+          labs(x = NULL, y = NULL, colour = NULL) +
+          theme(panel.background = element_rect(fill = "white", colour = "white"),
+                axis.ticks = element_blank(), 
+                panel.grid.major.x = element_line(size = 0.2, colour = "grey80"),
+                strip.background = element_rect(fill="#ffffff", colour = "grey90"),
+                legend.position = "none")
+  
+  p <- p + geom_line(aes(color = type), size = size) +
+           facet_grid(type ~ ., scales = "free", space = "free") +
+           scale_colour_manual(values = c("#8fada7", "#a46e7c")) 
+
+  p
+}
+
+plot_timeline2(
+  event = cv$Role,
+  start = cv$Start,
+  end = cv$End,
+  group = cv$Type)
+
+ggsave("cv_chalmers.png", width = 10, height = 6)
+
+```

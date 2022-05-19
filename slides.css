@@ -23,7 +23,7 @@
 .remark-slide-number .progress-bar-container {
   position: absolute;
   bottom: 0;
-  height: 6px;
+  height: 8px;
   display: block;
   left: 0;
   right: 0;
@@ -161,7 +161,8 @@ h2 {
   font-weight: bold;
   color: var(--header-color);
   line-height: 1em;
-  padding-top: 10px;
+  padding-top: 8px;
+  padding-bottom: 5px;
   
 }
 
@@ -178,7 +179,7 @@ h3 {
 .remark-slide-content {
   background-color: var(--background-color);
   font-size: 1rem;
-  padding: 16px 64px 6px 64px;
+  padding: 10px 64px 10px 64px;
   width: 100%;
   height: 100%;
 }
@@ -243,11 +244,9 @@ a, a > code {
   color: var(--header-color);
 }
 
-
 .huge {font-size: 350%;
-         font-weight: bold;
+       font-weight: bold;
 }
-
 
 .larger {font-size: 300%;
          font-weight: bold;
@@ -289,7 +288,7 @@ a, a > code {
   clear: both;
 }
 
-  /*Left 70% - Right 30% */
+  /*Left 50% - Right 50% */
   
 .pull-left {
   width: 50%;
@@ -476,7 +475,7 @@ img, video, iframe {
 
 /* Datatable headers */
 div.datatables {
-    color: #504556;
+    color: #2c8475;
 }
 
 .remark-slide table {
@@ -494,7 +493,7 @@ th, td {
 }
 
 .remark-slide thead, .remark-slide tfoot, .remark-slide tr:nth-child(even) {
-  background: #b9b4bb;
+  background: #6ba89e;
 }
 
 table.dataTable tbody {
@@ -507,7 +506,7 @@ table.dataTable.display tbody tr.odd {
 }
 
 table.dataTable.display tbody tr.even {
-  background-color: #b9b4bb;
+  background-color: #6ba89e;
 }
 
 table.dataTable.hover tbody tr:hover, table.dataTable.display tbody tr:hover {

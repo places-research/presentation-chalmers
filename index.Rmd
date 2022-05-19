@@ -32,7 +32,7 @@ background-size: contain
 
 
 .enormous[
-Incresing and reducing distances.... 
+Increasing and reducing distances.... 
 ]
 
 
@@ -97,7 +97,9 @@ Understanding the world...
 ???
 
 The first 18 years of my life
+🢁
 
+🢃
 ---
 class: center, middle
 
@@ -108,11 +110,12 @@ knitr::include_graphics("img/understand.png")
 ???
 
 The first stage of my life was an inductive exploration of the world! 
+➖
 
-
+✖️
 ---
 
-## That's 70s show
+## That's 70s show 🢁
 
 .pull-left[
 ```{r pais, echo=FALSE, out.width="90%"}
@@ -133,7 +136,7 @@ I was born in a traditional Brazilian family, back in 1979. Besides my parents, 
 ---
 
 
-## That's 70s show
+## That's 70s show 🢁
 
 ```{r eu, echo=FALSE, out.width="55%"}
 knitr::include_graphics("img/reta_baby_1.jpg")
@@ -207,7 +210,7 @@ These were times to get a Bachelor's and Master's degree, a Postgraduation diplo
 ---
 
 
-## Civil Engineering and carreer choice
+## Civil Engineering and carreer choice 🢁
 
 .pull-left[
 .bigger[
@@ -249,7 +252,7 @@ By the end of 2001 I got my Civil Engineering Bachelors' degree. But....
 
 ---
 
-## M.Sc. Transportation Engineering
+## M.Sc. Transportation Engineering 🢁
 
 .pull-left[
 ```{r ime, echo=FALSE, out.width="100%"}
@@ -272,7 +275,7 @@ I wasn't sure I was well instructed to work as an transportation engineer. So I 
 
 ---
 
-## Postgraduate diploma in Railway Engineering
+## Postgraduate diploma in Railway Engineering 🢁
 
 .pull-left[
 .bigger[
@@ -293,7 +296,7 @@ I had the opportunity to get a postgraduate diploma at Vale in Railway Engineeri
 
 ---
 
-## Professional experience in the industry
+## Professional experience in the industry 🢁
 
 .pull-left[
 ```{r vale1, echo=FALSE, out.width="80%"}
@@ -309,15 +312,15 @@ knitr::include_graphics("img/systra-architects.png")
 
 ---
 
-## Sparkling the joy of learning since 1996***
-.footnote[***OR TRYING REALLY HARD `r emo::ji("teacher")`]
+## Sparkling the joy of learning since 1996*** 🢃
+.footnote[*** OR TRYING REALLY HARD `r emo::ji("teacher")`]
 
 .bigger[
 English Teacher
 
 Novos Horizontes College    
 
-Community Foundation for Higher Education of Itabira
+Community Foundation for Higher Education of Itabira - FUNCESI
 
 Department of Transportation Engineering and Geotechnics - UFMG
 
@@ -330,7 +333,7 @@ Along with my studies, I experimented teaching... English teacher, lecturer in d
 
 ---
 
-## Teaching Philosophy
+## Teaching Philosophy (under construction `r emo::ji("construction")`) 🢃
 
 .pull-left[
 .bigger[
@@ -362,20 +365,19 @@ background-size: cover
 
 ---
 
-## CEFET-MG - other academic activities
+## CEFET-MG - other academic activities 🢃
 
-.bigger[.center[.purple[
+.bigger[.center[.purple[.bold[
 Transportation Engineering Department <br> Department of Applied Social Sciences
-]]]
+]]]]
 
 .bigger[
 .pull-left[
-
 **Academic coordinator** of **Transportation Engineering** undergraduate course   
 
-Undergraduate students from the institutional **scientific initiation program** and **IAESTE** program (internship)
+Undergraduate students from the institutional **scientific initiation program** and **IAESTE** program (internship)   
 
-**Research Ethics** Committee
+**Research Ethics** Committee   
 ]
 
 .pull-right[
@@ -395,7 +397,7 @@ background-image: url(img/pexels-pixabay-63643.jpg)
 background-size: cover
 
 .enormous[
-Producing and sharing knowlegde for a better world...
+Producing and sharing knowledge for a better world...
 ]
 
 ???
@@ -412,7 +414,7 @@ knitr::include_graphics("img/understanding2.png")
 
 ---
 
-## Doctor's degree in Geography - Spatial Analysis
+## Doctor's degree in Geography - Spatial Analysis 🢃🢃
 
 .pull-left[
 .bigger[
@@ -433,31 +435,41 @@ knitr::include_graphics("img/defesa.jpg")
 
 ---
 
-## Research Groups and Networks
+## Research in collaboration 🢃🢃🢃🢃🢃
 
 .bigger[
 .pull-left[
-<strike>Translog City</strike> 
 
-NIUMAR - Network on Intelligent Urban Mobility and Accessibility research ❤️   
+Network on Intelligent Urban Mobility and Accessibility research ❤️   
 
 RedeTP@acesso ❤️
 
-NOSS - Center for Organizational Studies, Society and Subjectivity ❤️  
+Center for Organizational Studies, Society and Subjectivity ❤️  
     
 **PLACES - Planning for Access** ❤️  
+
+IST - Lisbon University
 
 ]]
 
 .pull-right[
-```{r niumar, echo=FALSE, out.width="100%"}
-    knitr::include_graphics("img/niumar.jpg")
-```
-]
+.bigger[
+Aston University
+
+Federal University of Minas Gerais   
+
+Federal University of Tocantins   
+
+Federal University of São Carlos
+
+Federal University of Ceará  
+
+Université Gustave Eiffel
+]]
 
 ---
 
-## Community involvement
+## Community involvement 🢃🢃🢃🢃🢃
 
 .pull-left[
 .bigger[
@@ -466,8 +478,9 @@ Horta da Cidade - social enterpreneurship ❤️
 Paraíso do Tocantins Mobility Plan ❤️  
 
 Tutorial Education Program ❤️
-]]
 
+Technical advisory council for metropolitan planning ❤️
+]]
 .pull-right[
 ```{r horta, echo=FALSE, out.width="100%"}
 knitr::include_graphics("img/horta.jpg")
@@ -476,7 +489,7 @@ knitr::include_graphics("img/horta.jpg")
 
 ---
 
-## Postdoctoral Fellowship
+## Postdoctoral Fellowship 🢃🢃
 
 .bigger[
 **Relationships among urban characteristics, real estate market and spatial patterns of warehouses in different geographic contexts**
@@ -488,14 +501,29 @@ Logistics City Chair, da Université Gustave Eiffel
 
 
 ---
-## Main publications
+
+## Main publications 🢃🢃🢃
+
+.bigger[
+**Access to urban activities** during COVID-19 pandemic and impacts on urban mobility: the Brazilian Context - .purple[Transport Policy]
+
+The **geography of warehouses** in the SPMR and contribuiting factors to this spatial distribution - .purple[Journal of Transport Geography]
+
+A **sustainable** approach for urban farming based on city logistics concepts for **local production and consumption** of vegetables - .purple[Research in Transportation Economics]
+
+Analysis of the potential **demand** of **automated delivery stations** for e-commerce deliveries in Belo Horizonte, Brazil - .purple[Research in Transportation Economics]]
+
+
+---
+## Main international conferences 🢃🢃🢃🢃
+
 
 
 
 
 ---
 
-## External Funding 
+## External Funding 🢃🢃🢃
 
 .pull-left[
 .bigger[
@@ -511,9 +539,40 @@ knitr::include_graphics("img/2022-05-06 22_30_58-Seal of Excellence.pdf - Foxit 
 ]
 
 ---
-## Main research Projects
+
+## External Funding 🢃🢃🢃
+
+.pull-left[
+.bigger[
+**Individual research grant - productive researcher**   
+]
+National Council for Scientific and Technological Research
+Grant number: 314045/2021-0
+2022-2025
+
+.bigger[
+**Individual research grant - productive researcher**
+]
+National Council for Scientific and Technological Research
+Grant number: 312750/2018-8
+2019-2022
+]
+
+.pull-right[
+.bigger[
+**Universal research resources**
+]
+National Council for Scientific and Technological Research
+Grant number: 404754/2021-0
+]
+
+---
+## Main research Projects 🢃🢃🢃🢃
 
 Fazer o mapa mental dos projetos e como se relacionam
+
+Characterization of the Logistics Sprawl and respective impacts
+on metropolitan areas
 
 
 ---
@@ -526,7 +585,43 @@ background-size: cover
 Why Chalmers and where to go...
 ]
 
+
 ---
+## Why Chalmers? 🢃🢃🢃🢃🢃
+
+- Explore possibilities of inovative projects for knowledge production focused on promoting a more sustainable world
+- Research structure
+- Focus on gender equity
+-
+-
+- Support for engaging with companies, police-makers and society
+
+Among many other opportunities....
+
+
+---
+background-image: url(img/research_goals.png)
+background-size: cover
+
+---
+
+## Expected internal collaboration at Chalmers .center[🢃🢃🢃🢃🢃]
+
+Department | Collaboration
+-----------|--------------
+Architecture and Civil Engineering | Urban Design and Planning, Urban ans Regional Transformations, Cities and Complexity, Urban Functional and Morphological structures, Geocomputation 
+Technology Management and Economics | Operations and Supply Chain Management, Entrepreneuship and informal labour, inequality measures, urban accessibility as the aim of urban planning and public policy
+Computer Science and Engineering | Data Analytics, Geocomputation, Theoretical ML research for decision-making, natural language processing to support qualitative methods
+Communication and Learning in Science | Support on research communication to broader audiences, data curation and compliance with GDPR and Open Science efforts. 
+Space Earth and Environment (SEE) | Behaviour, energy, emissions, travel demand, travel behaviour, modelling and simulation.
+
+
+---
+## Research projects 🢃🢃🢃🢃🢃
+
+
+
+???
 
 Contribute to building better places to live, human scale cities and social justice - And this is what drives Chalmers
 
@@ -535,18 +630,6 @@ Communicating Science - OpenScience
 Develop a research identity, stimulate students para envolvimento em projetos com objetivo social e sustentável, life long learning (myself, my coworkers, my students and people from the community)
 
 Consolidate PLACES research group + Interaction among departments. 
-
-.big[
-Department | Collaboration
------------|--------------
-Architecture and Civil Engineering | Urban Design and Planning, Urban ans Regional Transformations, Cities and Complexity, Urban Functional and Morphological structures, Geocomputation 
-Technology Management and Economics | Operations and Supply Chain Management, Entrepreneuship and informal labour, inequality measures, urban accessibility as the aim of urban planning and public policy
-Computer Science and Engineering | Data Analytics, Geocomputation, Theoretical ML research for decision-making, natural language processing to support qualitative methods
-Communication and Learning in Science | Support on research communication to broader audiences, data curation and compliance with GDPR and Open Science efforts. 
-
-Space Earth and Environment (SEE) em Physical Resource Theory (Division)
-behaviour, energy, emmissions, travel demand, travel behaviour, modelling and simulation
-]
 
 ---
 
@@ -571,7 +654,7 @@ background-size: cover
 
 .enormous[
 .center[
-Keep reducing distances for a better world!
+Keep reducing distances for a better world! 🢃🢃🢃
 ]]
 
 ---
@@ -580,7 +663,7 @@ class: middle, inverse
 
 .pull-left[
 ```{r echo=FALSE, message=FALSE, warning=FALSE, out.width="55%"}
-knitr::include_graphics("img/reta_nova.jpeg")
+knitr::include_graphics("img/reta_atual.jpeg")
 ```
 ]
 
@@ -618,6 +701,18 @@ THANK YOU!
 &nbsp;
 
 
+???
 
+Research presentation, 30 minutes on the theme: Please
+ introduce yourself and your research and teaching experience related to the 
+Area of Transport.
+
+The lecture should cover: 
+
+
+- Your previous and proposed research 
+
+
+- How your research complements the existing research areas in relevant
 
 
