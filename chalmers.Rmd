@@ -37,12 +37,13 @@ today <- as.character(Sys.Date())
 cv <- data.frame(rbind(
   c("Develop a research identity", "Research", "2022-05-2024", "2023-06-01"),
   c("Consolidate a research group", "Research", "2022-05-2024", "2024-06-01"),
-  c("Contribute to building prosperous and better places to live, human scale cities and social justice", "Research", "2022-05-2024", "2050-01-01"),
+  c("Contribute to building prosperous and better places to live,\n human scale cities and social justice", "Research", "2022-05-2024", "2050-01-01"),
   c("Communicating Science - OpenScience",  "Research", "2022-05-2024", "2050-01-01"),
   c("International collaboration",  "Research", "2022-05-2024", "2050-01-01"),
-  c("Engage in research collaboration" , "Research", "2022-05-24", "2050-01-01"),
-  c("Engage students in lifelong learning",  "Education", "2022-05-2024", "2050-01-01")
-
+  c("Engage in research collaboration", "Research", "2022-05-24", "2050-01-01"),
+  c("Engage students in lifelong learning",  "Education", "2022-05-2024", "2050-01-01"),
+  c("Apply EMI knowledge in courses", "Education", "2022-05-2024", "2050-01-01"),
+  c("Develop further EMI and Active Learning approches", "Education", "2023-02-01", "2050-01-01")
 ))
 
 colnames(cv) <- order
@@ -67,7 +68,7 @@ plot_timeline2 <- function(event, start, end = start + 1, label = NA, group = NA
   mindate <- max(df$Start)
   
   p <- ggplot(cvlong, aes(x = value, y = reorder(name, -pos), group = pos)) + 
-          geom_vline(xintercept = mindate, alpha = 1, linetype = "dashed", size = 2) + 
+          geom_vline(xintercept = mindate, alpha = 1, linetype = "dashed", size = 1.5) + 
           labs(x = NULL, y = NULL, colour = NULL) +
           theme(panel.background = element_rect(fill = "white", colour = "white"),
                 axis.ticks = element_blank(), 
@@ -84,7 +85,7 @@ plot_timeline2 <- function(event, start, end = start + 1, label = NA, group = NA
 
 plot_timeline2(
   event = cv$Role,
-  start = cv$Start,
+  start = "2022-05-24",
   end = cv$End,
   group = cv$Type)
 
