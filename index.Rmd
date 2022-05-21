@@ -200,24 +200,18 @@ knitr::include_graphics("img/understanding1.png")
 These were times to get a Bachelor's and Master's degree, a Postgraduation diploma, some professional experience and a lot of teaching experience! And a lot of LOVE! I kept expanding my ecumene and enhancing distances from the real tangible world (besides motherhood! what a well-grounded challenge!)
 
 ---
+class: center
 
+## Bachelor in Civil Engineering
 
-## Civil Engineering 🢁 🌎 
-
-.pull-left[
-.bigger[
-- Students council and institutional representation
-- Undergrauduate Program for Scientific Initiation: **Residential Mobility and Transportation System in the Metropolitan Region of Belo Horizonte** 
-- Final semester: **Transportation Engineering**
-]]
-
-.pull-right[
-```{r civil1, echo=FALSE, fig.cap="", message=FALSE, warning=FALSE, out.width="80%"}
-knitr::include_graphics("img/pexels-thirdman-5584052.jpg")
+```{r forma1, echo=FALSE, out.width="100%"}
+knitr::include_graphics("img/forma2.png")
 ```
-]
+
 
 ???
+
+By the end of 2001, I got my Civil Engineering Bachelors' degree. But.... 
 
 During my undergraduate studies, I explored possibilities that were a game changer in my professional journey. 
 
@@ -228,23 +222,9 @@ I joined an Undergrauduate Program for Scientific Initiation in the project enti
 And in my final semester, I enrolled myself in transportation engineering courses. 
 
 Transportation was the only field of knowledge in my course that allowed me to identify challenges directly related to people. 
-
----
-class: center
-
-```{r forma1, echo=FALSE, out.width="100%"}
-knitr::include_graphics("img/forma2.png")
-``` 
-
-
-???
-
-By the end of 2001, I got my Civil Engineering Bachelors' degree. But.... 
-
-
 ---
 
-## M.Sc. Transportation Engineering 🢁 🌎 🚷
+## M.Sc. Transportation Engineering
 
 .pull-left[
 ```{r ime, echo=FALSE, out.width="100%"}
@@ -267,11 +247,10 @@ I wasn't sure I was well instructed to work as an transportation engineer. So I 
 
 ---
 
-## Pg. diploma in Railway Engineering 🢁 🌎 🚷
+## Pg. diploma in Railway Engineering
 
 .pull-left[
 .bigger[
-Vale - PgDip. Transportation Engineering
 
 **Analysis of the Increased Reliability of the Locomotives of the Grain Route after the Implementation of FCA's New Traction Scheme**
 ]]
@@ -288,7 +267,7 @@ I had the opportunity to get a postgraduate diploma at Vale in Railway Engineeri
 
 ---
 
-## Professional experience 🢁 🌎 🚷
+## Professional experience
 
 .pull-left[
 ```{r vale1, echo=FALSE, out.width="80%"}
@@ -308,7 +287,7 @@ knitr::include_graphics("img/systra-architects.png")
 background-image: url(img/fundo.png)
 background-size: cover
 
-## Sparkling the joy of learning since 1996*** .center[🢃 🚶 🚴 🔗]
+## Sparkling the joy of learning since 1996*** 
 .footnote[*** OR TRYING REALLY HARD `r emo::ji("teacher")`]
 
 .bigger[
@@ -331,7 +310,7 @@ Along with my studies, I experimented teaching... English teacher, lecturer in d
 
 ---
 
-## CEFET-MG 🢃 🚶🚴🔗
+## CEFET-MG
 
 .bigger[.center[.purple[.bold[
 Transportation Engineering Department <br> Department of Applied Social Sciences
@@ -350,9 +329,6 @@ Transportation Engineering Department <br> Department of Applied Social Sciences
 Thematic commitee for **research projects assessment**
 
 **Examining Boards** for different positions in Technological Education career
-
-**Examining Boards** of the simplified positions for temporary teachers
-
 ]]
 
 
@@ -387,7 +363,7 @@ knitr::include_graphics("img/understanding2.png")
 
 ---
 
-## Doctor's degree in Geography - Spatial Analysis .center[🢃🚶🚴🔗]
+## Doctor's degree in Geography - Spatial Analysis
 
 .pull-left[
 .bigger[
@@ -408,41 +384,39 @@ knitr::include_graphics("img/defesa.JPG")
 
 ---
 
-## Research in collaboration 🢃🚶🚴🔗
+## Research in collaboration
 
 .bigger[
 .pull-left[
-
-Network on Intelligent Urban Mobility and Accessibility research ❤️   
-
-RedeTP@acesso ❤️
-
-Center for Organizational Studies, Society and Subjectivity ❤️  
-    
-**PLACES - Planning for Access** ❤️  
-
 IST - Lisbon University
 
-]]
-
-.pull-right[
-.bigger[
 Aston University
+
+Université Gustave Eiffel
 
 Federal University of Minas Gerais   
 
 Federal University of Tocantins   
 
 Federal University of São Carlos
+]]
 
+.pull-right[
+.bigger[
 Federal University of Ceará  
 
-Université Gustave Eiffel
+Network on Intelligent Urban Mobility and Accessibility research ❤️   
+
+RedeTP@acesso ❤️
+
+Center for Organizational Studies, Society and Subjectivity ❤️ 
+    
+**PLACES - Planning for Access** ❤️  
 ]]
 
 ---
 
-## Community involvement 🢃🚶🚴🔗
+## Community involvement
 
 .pull-left[
 .bigger[
@@ -454,6 +428,7 @@ Tutorial Education Program ❤️
 
 Technical advisory council for metropolitan planning ❤️
 ]]
+
 .pull-right[
 ```{r horta, echo=FALSE, out.width="100%"}
 knitr::include_graphics("img/horta.jpg")
@@ -462,7 +437,7 @@ knitr::include_graphics("img/horta.jpg")
 
 ---
 
-## Postdoctoral Fellowship 🢃🚶🚴🔗
+## Postdoctoral Fellowship
 
 .bigger[
 **Relationships among urban characteristics, real estate market and spatial patterns of warehouses in different geographic contexts**
@@ -475,7 +450,7 @@ Logistics City Chair, da Université Gustave Eiffel
 
 ---
 
-## External Funding 🢃🚶🚴🔗
+## External Funding
 
 .pull-left[
 .bigger[
@@ -492,7 +467,7 @@ knitr::include_graphics("img/2022-05-06 22_30_58-Seal of Excellence.pdf - Foxit 
 
 ---
 
-## External Funding 🢃🚶🚴🔗
+## External Funding
 
 .pull-left[
 .bigger[
@@ -520,7 +495,7 @@ Grant number: 404754/2021-0
 
 ---
 
-## Main research efforts 🢃🚶🚴🔗
+## Main research efforts
 
 .bigger[
 .pull-left[
@@ -540,7 +515,7 @@ Grant number: 404754/2021-0
 
 ---
 
-## Teaching Philosophy (🚧) 🢃🚶🚴🔗
+## Teaching Philosophy (🚧)
 
 .pull-left[
 .bigger[
@@ -613,7 +588,7 @@ Why Chalmers and where to go...
 
 ---
 
-## Why Chalmers? 🢃 👩 🏫 🎓 🕵 🔗
+## Why Chalmers? 👩 🏫 🎓 🕵 🔗
 
 .bigger[
 - **Innovative projects** for **knowledge production** to contribute for a **more sustainable, happy and equitable world**
@@ -707,14 +682,9 @@ Space Earth and Environment (SEE) | Behaviour, energy, emissions, travel demand,
 ]
 
 --
-.bigger[
-- I am passionate about **learning** and want to develop **strong teaching and research skills**
-]
-
---
 
 .bigger[
-- I need to **work collaboratively** to have fun! Also, I have some experience in applying for **research funding** in the **Brazilian** and **European** contexts
+- I ❤ to **work collaboratively**! Also, I have some experience in applying for **research funding** in the **Brazilian** and **European** contexts
 ]
 
 --
@@ -751,7 +721,7 @@ Keep reducing distances and expanding interactions for a better world! <br>
 class: middle, inverse
 
 .pull-left[
-```{r echo=FALSE, message=FALSE, warning=FALSE, out.width="55%"}
+```{r echo=FALSE, message=FALSE, warning=FALSE, out.width="45%"}
 knitr::include_graphics("img/reta_atual.jpeg")
 ```
 ]
@@ -762,9 +732,6 @@ knitr::include_graphics("img/reta_atual.jpeg")
 .center[
 THANK YOU!
 ]]
-]
-
-<hr />
 
 &nbsp;
 
@@ -788,4 +755,6 @@ THANK YOU!
 </p>
 
 &nbsp;
+
+]
 
