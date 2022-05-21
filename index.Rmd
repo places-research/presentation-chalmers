@@ -704,11 +704,11 @@ Space Earth and Environment (SEE) | Behaviour, energy, emissions, travel demand,
 - I have a **peculiar perspective** of **urban mobility and accessibility problems**. I see the world as a white woman, housewife, mom, citizen of the global south, who aims for **diversity and inclusion**. I have developed **critical thinking** about **city-related problems** regarding **transport technology** and **mobility systems** throughout my career
 ]
 
+--
+
 .bigger[
 - **I ❤️ teaching** and have the ambition to explore deeper approaches to **engage students** into learning
 ]
-
-
 
 ---
 
@@ -728,6 +728,8 @@ Space Earth and Environment (SEE) | Behaviour, energy, emissions, travel demand,
 .bigger[
 - I need to **work collaboratively** to have fun! Also, I have some experience in applying for **research funding** in the **Brazilian** and **European** contexts
 ]
+
+--
 
 .bigger[
 - I'm eager to **communicate science** and develop projects aligned with **Open Science principles**!
