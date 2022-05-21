@@ -202,7 +202,7 @@ These were times to get a Bachelor's and Master's degree, a Postgraduation diplo
 ---
 
 
-## Civil Engineering 🢁 🌎 🚷
+## Civil Engineering 🢁 🌎 
 
 .pull-left[
 .bigger[
@@ -297,7 +297,7 @@ knitr::include_graphics("img/logo-vale-1024.png")
 ]
 
 .pull-right[
-```{r systra, echo=FALSE, out.width="60%"}
+```{r systra, echo=FALSE, out.width="80%"}
 knitr::include_graphics("img/systra-architects.png")
 ```
 ]
@@ -355,11 +355,6 @@ Thematic commitee for **research projects assessment**
 
 ]]
 
----
-
-class: center, bottom
-background-image: url(img/games.png)
-background-size: cover
 
 ---
 
@@ -592,7 +587,11 @@ heteronomies imposed by the constituted powers, characterized by selective, oppr
 excluding political and economic systems, in order to become a subject, with time and voice,
 author of his thinking and acting in the world.
 
+---
 
+class: center, bottom
+background-image: url(img/games.png)
+background-size: cover
 
 ---
 background-image: url(img/today.png)
@@ -704,7 +703,7 @@ Space Earth and Environment (SEE) | Behaviour, energy, emissions, travel demand,
 ## Why me? 
 
 .bigger[
-- I have **multidisciplinary** education and professional experience. This can be a great asset for Chalmers to address current **societal and corporate challenges** and coordinate internal and external **collaboration**
+- I have **multidisciplinary** education and professional experience. This can be a great asset for Chalmers to address current **societal and corporate challenges** and help coordinate internal and external **collaboration**
 ]
 
 --
@@ -735,20 +734,6 @@ Consolidate PLACES research group + Interaction among departments.
 
 ---
 
-class: center
-background-image: url(img/pexels-monstera-5874738.jpg)
-background-size: cover
-
-.bold[
-.large[
-**“To TEACH, one needs Eros” Plato**
-
-**To LEARN, one needs Eros. Renata**
-
-**To produce KNOWLEDGE, one needs Eros. Renata**
-]]
-
----
 
 class: top, center
 background-image: url(img/dist.jpg)
@@ -803,203 +788,4 @@ THANK YOU!
 </p>
 
 &nbsp;
-
----
-
-
-## Some publications 🢃🚶🚴
-
-.bigger[
-**Access to urban activities** during COVID-19 pandemic and impacts on urban mobility: the Brazilian Context - .purple[Transport Policy]
-
-The **geography of warehouses** in the SPMR and contribuiting factors to this spatial distribution - .purple[Journal of Transport Geography]
-
-A **sustainable** approach for urban farming based on city logistics concepts for **local production and consumption** of vegetables - .purple[Research in Transportation Economics]
-
-Analysis of the potential **demand** of **automated delivery stations** for e-commerce deliveries in Belo Horizonte, Brazil - .purple[Research in Transportation Economics]]
-
----
-## Prizes
-
-Paraninfa of the 72nd graduation seminar of industrial technicians - Graduates of the Technical Course in Transportation and Traffic, CEFET-MG.
-
-Paraninfa of the 69th graduation seminar of industrial technicians - Graduates of the Technical Course in Transportation and Traffic, CEFET-MG.
-
-Honored Professor of the Graduating Students in Civil Production Engineering, CEFET-MG.
-
-President of the 67th graduation seminar of industrial technicians - Graduates of the Technical Course of Transport and Traffic, CEFET-MG.
-
-In honor of the 66th graduation seminar of industrial technicians - Graduates of the technical course of Transport and Traffic, CEFET-MG.
-
-Paraninfa of the 65 graduation seminar of industrial technicians - Graduates of the technical course of Transportation and Traffic, CEFET-MG.
-
-Homage from the Administration class - Graduates of 2007, Fundação Comunitária de Ensino Superior de Itabira - FUNCESI.
-
-Award for orienting the Best Monograph in the Administration course at FUNCESI, Fundação Comunitária de Ensino Superior de Itabira - FUNCESI.
-
-Honored Professor of the Administration course, Faculdade Novos Horizontes.
-
----
-
-# Couses ministede
-
-
-
----
-
-# Students
-
-
-
-???
-
-Research presentation, 30 minutes on the theme: Please
- introduce yourself and your research and teaching experience related to the 
-Area of Transport.
-
-The lecture should cover: 
-
-
-- Your previous and proposed research 
-
-
-- How your research complements the existing research areas in relevant
-
-
-
-1.
-4th VREF Conference. Relationships among urban characteristics, real estate market and spatial patterns of warehouses in different geographic contexts. 2021. (Congresso).
-
-2.
-34 ANPET. Palestra Setorial: Mobilidade urbana, equidade e acesso a oportunidades durante e pós pandemia no Brasil. 2020. (Congresso).
-
-3.
-11th International Conference on City Logistics. EXPLORATORY ANALYSIS OF THE ACCESSIBILITY TO FOOD RETAILERS IN BELO HORIZONTE. 2019. (Congresso).
-
-4.
-15th biannual NECTAR Conference. ACCESSIBILITY TO FOOD SYSTEMS IN BELO HORIZONTE, BRAZIL. 2019. (Congresso).
-
-5.
-6th workshop NIUMAR.Projects under development and research agenda. 2019. (Seminário).
-
-6.
-1st Brazilian EMI. 2018. (Seminário).
-
-7.
-2nd workshop da NIUMAR.Desenvolvimento de pesquisa. 2018. (Seminário).
-
-8.
-3rd workshop NIUMAR.Perspectivas de parceria. 2018. (Seminário).
-
-9.
-4th workshop NIUMAR.Encaminhamentos. 2018. (Seminário).
-
-10.
-SECIPET.As interações urbanas e a distribuição de mercadorias. 2018. (Seminário).
-
-11.
-Workshop do Cluster 2 do Nectar.A sustainable business model for urban farming based on city logistics concepts for local production and consumption of vegetables. 2018. (Seminário).
-
-12.
-2o Workshop de Inteligência Geográfica Aplicada ao Planejamento de Transportes.Análise espacial a soluções para o último quilômetro. 2017. (Seminário).
-
-13.
-Congresso Nacional de Engenharias de Mobilidade. Análise Espacial Aplicada ao Planejamento da Distribuição Urbana de Mercadorias. 2017. (Congresso).
-
-14.
-Efficiency in Urban Logistics: Current challenges, innovative & green solutions. 2017. (Seminário).
-
-15.
-I SEMINÁRIO CIENTIFICO DE PESQUISA EM TRANSPORTE "FUTURO NO TRANSPORTE DE BELO HORIZONTE". 2017. (Seminário).
-
-16.
-Researchers Links Workshop: How the Railways contribute to improving quality of life?.Researchers Links Workshop. 2017. (Seminário).
-
-17.
-Semana de Engenharia da UNA.Análise Espacial Aplicada ao Planejamento da Distribuição Urbana de Mercadorias. 2017. (Seminário).
-
-18.
-Semana Internacional de Engenharia Metroferroviária, Transportes e Logística.Análise espacial aplicada a soluções para o último quilômetro. 2017. (Seminário).
-
-19.
-Tenth International Conference on City Logistics. Urban Distribution of Craft-Brewed Beer in Belo Horizonte Metropolitan Area. 2017. (Congresso).
-
-20.
-XXX Congresso da Associação Nacional de Pesquisa e Ensino em Transportes. Índice de Mobilidade Sustentável das Áreas Homogêneas de Escolas em Belo Horizonte. 2016. (Congresso).
-
-21.
-XII Workshop do Ensino de Graduação. 2015. (Simpósio).
-
-22.
-XXIX Congresso de Pesquisa e Ensino em Transportes XXIX ANPET. ANÁLISE DO DESEMPENHO OPERACIONAL DA MOVIMENTAÇÃO DE NAVIOS DE CONTÊINERES EM SANTOS POR MEIO DE SIMULAÇÃO. 2015. (Congresso).
-
-23.
-1o Workshop sobre Inteligência Geográfica Aplicada ao Planejamento de Transportes. 2014. (Simpósio).
-
-24.
-IX Encontro Nacional da Associação Brasileira de Estudos Regionais e Urbanos. Análise da Evolução Têmporo-Espacial da Matriz de Transportes no Brasil: Uma abordagem Geográfica.. 2011. (Congresso).
-
-25.
-14o Encontro Nacional de Conservação Rodoviária. 2009. (Congresso).
-
-26.
-V Semana de Ciência e Tecnologia.Avaliação de Ferramentas Computacionais para o Ensino de Engenharia de Transportes na Educação Profissional e Tecnológica de Nível Médio. 2009. (Simpósio).
-
-27.
-XXII Congresso de Pesquisa e Ensino em Transportes. Avaliação do Nível de Serviço da Operação Portuária do Terminal de Contêineres do Porto de Santos. 2008. (Congresso).
-
-28.
-III Seminário de Avaliação das Bolsas de Iniciação Científica Júnior.Modelo Neuro-Fuzzy para Escolha Modal no Transporte de Cargas. 2007. (Simpósio).
-
-29.
-XIII Pan-American Conference of Traffic and Transportation Engineering. XIII Pan-American Conference of Traffic and Transportation Engineering.. 2004. (Congresso).
-
-30.
-XVIII Congresso de Pesquisa e Ensino em Transportes. XVIII Congresso de Pesquisa e Ensino em Transportes. 2004. (Congresso).
-
-31.
-I Semana Unificada de Engenharia. 2001. (Seminário).
-
-32.
-I Semana do Conhecimento.Análise Exploratória da Mobilidade Residencial na RMBH Utilizando-se Árvores de Regressão e classificação. 2000. (Seminário).
-
-
-1.
-OLIVEIRA, L. K. ; OLIVEIRA, R. L. M. ; BRACARENSE, L. S. F. P. . I Fórum Brasileiro de Logística Urbana. 2018. (Outro).
-
-2.
-OLIVEIRA, Renata Lúcia Magalhães de; OLIVEIRA, M. G. ; TEODORO, A. B. . I Encontro Nacional dos Curso de Engenharia de Transportes, Mobilidade e Logística. 2016. (Outro).
-
-3.
-OLIVEIRA, Renata Lúcia Magalhães de. Seminário do Curso Técnico de Transportes. 2007. (Outro).
-
-4.
-OLIVEIRA, Renata Lúcia Magalhães de. Seminário de Transportes. 2006. (Outro).
-
----
-## Prizes
-
-
-Paraninfa of the 72nd graduation seminar of industrial technicians - Graduates of the Technical Course in Transportation and Traffic, CEFET-MG.
-
-Paraninfa of the 69th graduation seminar of industrial technicians - Graduates of the Technical Course in Transportation and Traffic, CEFET-MG.
-
-Honored Professor of the Graduating Students in Civil Production Engineering, CEFET-MG.
-
-President of the 67th graduation seminar of industrial technicians - Graduates of the Technical Course of Transport and Traffic, CEFET-MG.
-
-In honor of the 66th graduation seminar of industrial technicians - Graduates of the technical course of Transport and Traffic, CEFET-MG.
-
-Paraninfa of the 65 graduation seminar of industrial technicians - Graduates of the technical course of Transportation and Traffic, CEFET-MG.
-
-Homage from the Administration class - Graduates of 2007, Fundação Comunitária de Ensino Superior de Itabira - FUNCESI.
-
-Award for Guiding the Best Monograph in the Administration course at FUNCESI, Fundação Comunitária de Ensino Superior de Itabira - FUNCESI.
-
-Honored Professor of the Administration course, Faculdade Novos Horizontes.
-
----
-## References
-
-Freire, P. (1968/2000). Pedagogy of the oppressed (30th Anniversary ed.). New York, NY: Bloomsbury.
 
