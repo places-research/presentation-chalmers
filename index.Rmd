@@ -418,7 +418,7 @@ Institut Rhônalpin des Systèmes Complexes
 
 .pull-right[
 ```{r doc, echo=FALSE, fig.cap="", message=FALSE, warning=FALSE, out.width="95%"}
-knitr::include_graphics("img/defesa.jpg")
+knitr::include_graphics("img/defesa.JPG")
 ```
 ]
 
