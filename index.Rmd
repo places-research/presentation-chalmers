@@ -164,17 +164,6 @@ knitr::include_graphics("img/bh.png")
 
 For those of you that do not know where Belo Horizonte is, here is a little hint! 
 
-
----
-background-image: url(img/snow.jpeg)
-background-size: contain
-
-???
-
-I had a traditional adolescence, going crazy at the first time I played in the snow! This happened in my first international experience: a high school exchange program in Idaho-US.
-
-My ecumene kept enlarging!
-
 ---
 
 background-image: url(img/young.png)
